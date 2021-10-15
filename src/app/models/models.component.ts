@@ -16,5 +16,4 @@ export class add_service{
 public categoria: string;
 public servico: string;
 public descricao: string;
-public valor: number;
 }
