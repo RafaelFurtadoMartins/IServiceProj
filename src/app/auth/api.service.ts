@@ -17,10 +17,5 @@ export class ApiService {
   cadastro(cadastro) {
     return this.http.post<any>(`${this.globalService.apiUrl}/account/register`, cadastro);
   }
-  redefinir(redefinirEmail){
-    return this.http.post<any>(`${this.globalService.apiUrl}/account/confirmEmail`, redefinirEmail);
-  }
-  reenviarEmail(reenviarEmail){
-    return this.http.post<any>(`${this.globalService.apiUrl}/account/sendConfirmation`, reenviarEmail);
-  }
+
 }
