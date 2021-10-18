@@ -8,7 +8,7 @@ import { FeedPage } from '../feed/feed.page';
 
 @Component({
     selector: 'page-login',
-    templateUrl: 'login.html',
+    templateUrl: 'login.page.html',
 })
 export class LoginPage {
 
@@ -22,7 +22,7 @@ export class LoginPage {
 
     constructor(public navCtrl: NavController,
         private apiService: ApiService,
-        public navParams: NavParams,
+        // public navParams: NavParams,
         public authService: AuthenticationService,
         public alertCtrl: AlertController,
         private router: Router,
