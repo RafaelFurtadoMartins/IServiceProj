@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, NavController, NavParams } from '@ionic/angular';
-import { ApiService } from '../auth/api.service';
-import { AuthenticationService } from '../auth/auth';
+import { ApiService } from '../services/1';
+import { AuthenticationService } from '../services/2';
 import { FeedPage } from '../feed/feed.page';
 
 

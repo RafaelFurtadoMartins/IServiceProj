@@ -9,13 +9,18 @@ import { LoginPageModule } from './login/login.module';
 import { FeedPageModule } from './feed/feed.module';
 import { LoginPageRoutingModule } from './login/login-routing.module';
 import { LoginPage } from './login/login.page';
+import { HttpClientModule } from '@angular/common/http';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @NgModule({
   declarations: [AppComponent
   ],
   entryComponents: [],
-  imports: [BrowserModule, AppRoutingModule, IonicModule.forRoot(), LoginPageModule, RegisterPageModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [BrowserModule, AppRoutingModule, IonicModule.forRoot(), LoginPageModule, RegisterPageModule, HttpClientModule,],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    NativeStorage
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
