@@ -16,9 +16,9 @@ import { NativeStorage } from '@ionic-native/native-storage';
   declarations: [AppComponent
   ],
   entryComponents: [],
-  imports: [BrowserModule, AppRoutingModule, IonicModule.forRoot(), LoginPageModule, RegisterPageModule, HttpClientModule,],
+  imports: [BrowserModule, AppRoutingModule, IonicModule.forRoot(), LoginPageModule, RegisterPageModule, HttpClientModule, NativeStorage,],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    NativeStorage
+    NativeStorage,
 
   ],
   bootstrap: [AppComponent],

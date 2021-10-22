@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, NavController, NavParams } from '@ionic/angular';
-import { ApiService } from '../services/1';
-import { AuthenticationService } from '../services/2';
+import { AlertController, ModalController, NavController, NavParams } from '@ionic/angular';
 import { FeedPage } from '../feed/feed.page';
+import { NgForm } from '@angular/forms';
+import { AlertService } from '../services/alert.service';
+import { AuthService } from '../services/auth.service';
+import { RegisterPage } from '../register/register.page';
 
 
 @Component({
@@ -12,64 +14,44 @@ import { FeedPage } from '../feed/feed.page';
 })
 export class LoginPage {
 
-
-    email: string = '';
-    password: string = '';
-    errorMsg: string;
-    alertController: any;
-
-
-
-    constructor(public navCtrl: NavController,
-        private apiService: ApiService,
-        // public navParams: NavParams,
-        public authService: AuthenticationService,
-        public alertCtrl: AlertController,
-        private router: Router,
-
+    constructor(    private modalController: ModalController,
+        private authService: AuthService,
+        private navCtrl: NavController,
+        private alertService: AlertService
 
     ) {
     }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad LoginPage');
+    ngOnInit() {
     }
-
-
-    async errorFunc(message) {
-        let alert = this.alertCtrl.create({
-            header: 'Warning!',
-            message: 'error',
-            buttons: ['OK']
-        });
-        (await alert).present();
+  
+    // Dismiss Login Modal
+    dismissLogin() {
+      this.modalController.dismiss();
     }
-
-    logIn() {
-
-
-        return this.apiService
-            .logar({ email: this.email, password: this.password })
-            .subscribe(response => {
-                if (response.success == true) {
-                    this.authService.login(response.data);
-                    this.router.navigate(["home-page"]);
-                }
-
-            },
-                async error => {
-
-                    const alert = await this.alertController.create({
-                        cssClass: 'my-custom-class',
-                        header: 'Alert',
-                        subHeader: 'Subtitle',
-                        message: 'This is an alert message.',
-                        buttons: ['OK']
-                    });
-
-
-                });
+  
+    // On Register button tap, dismiss login modal and open register modal
+    async registerModal() {
+      this.dismissLogin();
+      const registerModal = await this.modalController.create({
+        component: RegisterPage
+      });
+      return await registerModal.present();
     }
-
-
-}
+  
+    login(form: NgForm) {
+      this.authService.login(form.value.email, form.value.password).subscribe(
+        data => {
+          this.alertService.presentToast("Logged In");
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          this.dismissLogin();
+          this.navCtrl.navigateRoot('feed-page');
+        }
+      );
+    }
+  
+  }

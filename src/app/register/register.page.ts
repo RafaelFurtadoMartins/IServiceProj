@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {  NavController, AlertController } from '@ionic/angular';
-import { ApiService } from '../services/1';
-import { AuthenticationService } from '../services/2';
+import { ModalController, ToastController, NavController } from '@ionic/angular';
 import { LoginPage } from '../login/login.page';
+import { AuthService } from 'src/app/services/auth.service';
+import { NgForm } from '@angular/forms';
+import { AlertService } from 'src/app/services/alert.service';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @Component({
   selector: 'app-register',
@@ -11,80 +12,86 @@ import { LoginPage } from '../login/login.page';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  nome:string = '';
-  email:string = '';
-  cpf:string = '';
-  senha:string = '';
-  confirmarSenha:string = '';
-  errorMsg:string;
-  navCtrl: any;
 
-  constructor(private route: Router,
-    // public navParams: NavParams,
-    private authService: ApiService ,
-    public alertCtrl: AlertController ,) { }
+  constructor(private modalController: ModalController,
+    private authService: AuthService,
+    private toastController: ToastController,
+    private navCtrl: NavController,
+    private alertService: AlertService,
+    private nativeStorage: NativeStorage
+  ) { }
 
-  ngOnInit() {}
-  
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+  ngOnInit() {
   }
 
+  // Dismiss Register Modal
+  dismissRegister() {
+    this.modalController.dismiss();
+  }
 
-  async errorFunc(message){
-    let alert = this.alertCtrl.create({
-      header: 'Warning!',
-      buttons: ['OK']
+  // On Login button tap, dismiss Register modal and open login Modal
+  async loginModal() {
+    this.dismissRegister();
+    const loginModal = await this.modalController.create({
+      component: LoginPage,
     });
-    (await alert).present();
-  }
-  
-
-home(){
-  this.route.navigate(['/login']);
-
-}
-register(){
-  if (this.nome.trim()  &&  this.email.trim()  && this.cpf.trim()  && this.senha.trim()  
-  && this.senha.trim()  && this.confirmarSenha.trim() ) {    
-      
-    
-       
-    if (this.senha.trim()  === '') {
-      this.errorFunc('Digite sua senha')
-
-    }else{
-
-      let credentials = {
-        nome: this.nome,
-        email: this.email,
-        cpf: this.cpf,
-        senha: this.senha,
-        confirmarSenha: this.confirmarSenha,
-
-      };
-
-      
-       this.authService.cadastro(credentials).subscribe((result) => {
-          console.log(result);
-          this.navCtrl.setRoot(LoginPage);
-         
-      }, (err) => {
-   
-          console.log(err);
-          this. errorFunc('Wrong credentials ! try again')
-          console.log("credentials: "+JSON.stringify(credentials))
-          
-      });
-
-    }
-    
- }
- else{
-  
-  this. errorFunc('Please put a vaild password !  for ex:(123456)')
- 
+    return await loginModal.present();
   }
 
+  register(form: NgForm) {
+    this.authService.register(form.value.nome, form.value.email, form.value.cpf, 
+      form.value.telefone,).subscribe(
+      data => {
+        this.authService.login(form.value.email, form.value.password).subscribe(
+          data => {
+          },
+          error => {
+            console.log(error);
+          },
+          () => {
+            this.dismissRegister();
+            this.navCtrl.navigateRoot('/dashboard');
+          }
+        );
+        this.alertService.presentToast(data['message']);
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+        
+      }
+    );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
