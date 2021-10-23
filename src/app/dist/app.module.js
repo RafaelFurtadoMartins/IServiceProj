@@ -17,16 +17,25 @@ var register_module_1 = require("./register/register.module");
 var login_module_1 = require("./login/login.module");
 var http_1 = require("@angular/common/http");
 var native_storage_1 = require("@ionic-native/native-storage");
+var ngx_1 = require("@ionic-native/splash-screen/ngx");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            declarations: [app_component_1.AppComponent
-            ],
+            declarations: [app_component_1.AppComponent],
             entryComponents: [],
-            imports: [platform_browser_1.BrowserModule, app_routing_module_1.AppRoutingModule, angular_1.IonicModule.forRoot(), login_module_1.LoginPageModule, register_module_1.RegisterPageModule, http_1.HttpClientModule, native_storage_1.NativeStorage,],
-            providers: [{ provide: router_1.RouteReuseStrategy, useClass: angular_1.IonicRouteStrategy },
+            imports: [platform_browser_1.BrowserModule,
+                app_routing_module_1.AppRoutingModule,
+                angular_1.IonicModule.forRoot(),
+                login_module_1.LoginPageModule,
+                register_module_1.RegisterPageModule,
+                http_1.HttpClientModule,
+                native_storage_1.NativeStorage,
+            ],
+            providers: [
+                ngx_1.SplashScreen,
+                { provide: router_1.RouteReuseStrategy, useClass: angular_1.IonicRouteStrategy },
                 native_storage_1.NativeStorage,
             ],
             bootstrap: [app_component_1.AppComponent]

@@ -11,13 +11,24 @@ import { LoginPageRoutingModule } from './login/login-routing.module';
 import { LoginPage } from './login/login.page';
 import { HttpClientModule } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 @NgModule({
-  declarations: [AppComponent
-  ],
+  declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, AppRoutingModule, IonicModule.forRoot(), LoginPageModule, RegisterPageModule, HttpClientModule, NativeStorage,],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  imports: [BrowserModule,
+    AppRoutingModule,
+    IonicModule.forRoot(),
+    LoginPageModule,
+    RegisterPageModule,
+    HttpClientModule,
+    NativeStorage,
+  ],
+
+  providers: [
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeStorage,
 
   ],
