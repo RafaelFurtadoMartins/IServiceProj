@@ -8,11 +8,10 @@ import { RegisterPageModule } from './register/register.module';
 import { LoginPageModule } from './login/login.module';
 import { FeedPageModule } from './feed/feed.module';
 import { LoginPageRoutingModule } from './login/login-routing.module';
-import { LoginPage } from './login/login.page';
 import { HttpClientModule } from '@angular/common/http';
-import { NativeStorage } from '@ionic-native/native-storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +22,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
     LoginPageModule,
     RegisterPageModule,
     HttpClientModule,
-    NativeStorage,
   ],
 
   providers: [

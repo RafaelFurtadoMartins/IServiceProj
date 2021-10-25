@@ -42,34 +42,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.RegisterPage = void 0;
+exports.LandingPage = void 0;
 var core_1 = require("@angular/core");
 var login_page_1 = require("../login/login.page");
-var RegisterPage = /** @class */ (function () {
-    function RegisterPage(modalController, authService, toastController, navCtrl, alertService) {
+var register_page_1 = require("../register/register.page");
+var LandingPage = /** @class */ (function () {
+    function LandingPage(modalController, menu, authService, navCtrl) {
         this.modalController = modalController;
+        this.menu = menu;
         this.authService = authService;
-        this.toastController = toastController;
         this.navCtrl = navCtrl;
-        this.alertService = alertService;
+        this.menu.enable(false);
     }
-    RegisterPage.prototype.ngOnInit = function () {
+    LandingPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        this.authService.getToken().then(function () {
+            if (_this.authService.isLoggedIn) {
+                _this.navCtrl.navigateRoot('/feed');
+            }
+        });
     };
-    // Dismiss Register Modal
-    RegisterPage.prototype.dismissRegister = function () {
-        this.modalController.dismiss();
+    LandingPage.prototype.ngOnInit = function () {
     };
-    // On Login button tap, dismiss Register modal and open login Modal
-    RegisterPage.prototype.loginModal = function () {
+    LandingPage.prototype.register = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var registerModal;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: register_page_1.RegisterPage
+                        })];
+                    case 1:
+                        registerModal = _a.sent();
+                        return [4 /*yield*/, registerModal.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    LandingPage.prototype.login = function () {
         return __awaiter(this, void 0, void 0, function () {
             var loginModal;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        this.dismissRegister();
-                        return [4 /*yield*/, this.modalController.create({
-                                component: login_page_1.LoginPage
-                            })];
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: login_page_1.LoginPage
+                        })];
                     case 1:
                         loginModal = _a.sent();
                         return [4 /*yield*/, loginModal.present()];
@@ -78,29 +96,13 @@ var RegisterPage = /** @class */ (function () {
             });
         });
     };
-    RegisterPage.prototype.register = function (form) {
-        var _this = this;
-        this.authService.register(form.value.nome, form.value.email, form.value.cpf, form.value.telefone).subscribe(function (data) {
-            _this.authService.login(form.value.email, form.value.password).subscribe(function (data) {
-            }, function (error) {
-                console.log(error);
-            }, function () {
-                _this.dismissRegister();
-                _this.navCtrl.navigateRoot('/login');
-            });
-            _this.alertService.presentToast(data['message']);
-        }, function (error) {
-            console.log(error);
-        }, function () {
-        });
-    };
-    RegisterPage = __decorate([
+    LandingPage = __decorate([
         core_1.Component({
-            selector: 'app-register',
-            templateUrl: './register.page.html',
-            styleUrls: ['./register.page.scss']
+            selector: 'app-landing',
+            templateUrl: './landing.page.html',
+            styleUrls: ['./landing.page.scss']
         })
-    ], RegisterPage);
-    return RegisterPage;
+    ], LandingPage);
+    return LandingPage;
 }());
-exports.RegisterPage = RegisterPage;
+exports.LandingPage = LandingPage;

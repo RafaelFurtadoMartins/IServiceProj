@@ -4,7 +4,6 @@ import { LoginPage } from '../login/login.page';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgForm } from '@angular/forms';
 import { AlertService } from 'src/app/services/alert.service';
-import { NativeStorage } from '@ionic-native/native-storage';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +17,6 @@ export class RegisterPage implements OnInit {
     private toastController: ToastController,
     private navCtrl: NavController,
     private alertService: AlertService,
-    private nativeStorage: NativeStorage
   ) { }
 
   ngOnInit() {
@@ -50,7 +48,7 @@ export class RegisterPage implements OnInit {
           },
           () => {
             this.dismissRegister();
-            this.navCtrl.navigateRoot('/dashboard');
+            this.navCtrl.navigateRoot('/login');
           }
         );
         this.alertService.presentToast(data['message']);

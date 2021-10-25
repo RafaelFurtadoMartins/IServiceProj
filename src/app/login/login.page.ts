@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AlertController, ModalController, NavController, NavParams } from '@ionic/angular';
-import { FeedPage } from '../feed/feed.page';
 import { NgForm } from '@angular/forms';
 import { AlertService } from '../services/alert.service';
 import { AuthService } from '../services/auth.service';

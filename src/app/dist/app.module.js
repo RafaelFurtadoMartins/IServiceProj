@@ -16,8 +16,8 @@ var app_routing_module_1 = require("./app-routing.module");
 var register_module_1 = require("./register/register.module");
 var login_module_1 = require("./login/login.module");
 var http_1 = require("@angular/common/http");
-var native_storage_1 = require("@ionic-native/native-storage");
 var ngx_1 = require("@ionic-native/splash-screen/ngx");
+var native_storage_1 = require("@ionic-native/native-storage");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -31,7 +31,6 @@ var AppModule = /** @class */ (function () {
                 login_module_1.LoginPageModule,
                 register_module_1.RegisterPageModule,
                 http_1.HttpClientModule,
-                native_storage_1.NativeStorage,
             ],
             providers: [
                 ngx_1.SplashScreen,
