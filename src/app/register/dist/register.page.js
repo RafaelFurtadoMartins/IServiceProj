@@ -94,6 +94,9 @@ var RegisterPage = /** @class */ (function () {
         }, function () {
         });
     };
+    RegisterPage.prototype.home = function () {
+        this.navCtrl.back();
+    };
     RegisterPage = __decorate([
         core_1.Component({
             selector: 'app-register',

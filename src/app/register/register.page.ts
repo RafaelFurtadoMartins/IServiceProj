@@ -61,4 +61,7 @@ export class RegisterPage implements OnInit {
       }
     );
   }
+  home(){
+    this.navCtrl.back();
+    }
 }

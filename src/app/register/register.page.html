@@ -8,46 +8,43 @@
                 Cadastro</h1>
 
 
-            <p>
+            <form #form="ngForm" (ngSubmit)="register(form)" method="post">
                 <ion-item>
-                    <ion-label position="floating" ngModel name="name">Nome</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position="floating">Nome</ion-label>
+                    <ion-input ngModel name="name"></ion-input>
                 </ion-item>
-            </p>
-            <p>
+                <br>
                 <ion-item>
-                    <ion-label position="floating" type="email" ngModel name="email">E-mail</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position="floating">E-mail</ion-label>
+                    <ion-input ngModel name="email"></ion-input>
                 </ion-item>
-            </p>
+                <br>
 
-            <p>
                 <ion-item>
-                    <ion-label position="floating" ngModel name="cpf">CPF</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position="floating">CPF</ion-label>
+                    <ion-input ngModel name="cpf"></ion-input>
                 </ion-item>
-            </p>
-            <p>
+                <br>
+
                 <ion-item>
-                    <ion-label position="floating" ngModel name="telefone">Telefone</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position="floating">Telefone</ion-label>
+                    <ion-input ngModel name="telefone"></ion-input>
                 </ion-item>
-            </p>
-            <p>
+                <br>
+
                 <ion-item>
-                    <ion-label position="floating" ngModel name="senha">Senha</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position="floating">Senha</ion-label>
+                    <ion-input type="password" ngModel name="senha"></ion-input>
                 </ion-item>
-            </p>
-            <p>
+                <br>
+
                 <ion-item>
-                    <ion-label position="floating" ngModel name="confirmarSenha">Confirmar Senha</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position="floating"> Confirmar Senha</ion-label>
+                    <ion-input type="password" ngModel name="confirmarSenha"></ion-input>
                 </ion-item>
-            </p>
-            <p>
-                <input type="submit" value="Cadastrar" color="danger" (click)="register()" />
-            </p>
+
+                <ion-button type="submit" expand="full" color="danger">Register</ion-button>
+            </form>
             <p text-center></p>
 
         </form>
