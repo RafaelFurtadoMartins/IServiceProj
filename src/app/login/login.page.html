@@ -8,25 +8,26 @@
     <form method="post" action="">
         <div class="login">
             <h1>Login</h1>
-            <p>
+            <form #form="ngForm" (ngSubmit)="login(form)" method="post">
                 <ion-item>
-                    <ion-label position="floating" ngModel type="email" name="email">E-mail</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input ngModel type="email" name="email"></ion-input>
                 </ion-item>
-            </p>
-            <p>
+
                 <ion-item>
-                    <ion-label position="floating" ngModel type="password" name="password">Senha</ion-label>
-                    <ion-input></ion-input>
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input ngModel type="password" name="password"></ion-input>
                 </ion-item>
-            </p>
-            <p>
-                <input type="submit" value="Login" (click)="login()" />
-            </p>
+
+                <br> <br>
+                <ion-button type="submit" expand="full" color="primary">Login</ion-button>
+            </form>
+
             <p class="link">
                 Ainda não tem conta?
                 <ion-icon name="person-add-outline" (click)="register()" class="icon"></ion-icon>
             </p>
+            <br>
             <ion-button expand="full">
                 <ion-icon name="logo-google"></ion-icon>
             </ion-button>

@@ -37,7 +37,7 @@ export class RegisterPage implements OnInit {
   }
 
   register(form: NgForm) {
-    this.authService.register(form.value.nome, form.value.email, form.value.cpf, 
+    this.authService.register(form.value.name, form.value.email, form.value.cpf, 
       form.value.telefone,).subscribe(
       data => {
         this.authService.login(form.value.email, form.value.password).subscribe(
@@ -62,34 +62,3 @@ export class RegisterPage implements OnInit {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
