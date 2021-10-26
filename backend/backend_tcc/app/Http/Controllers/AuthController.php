@@ -35,16 +35,21 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'fName' => 'required|string',
-            'lName' => 'required|string',
+            'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string'
+            'cpf' => 'required|string',
+            'telefone' => 'required|string',
+            'senha' => 'required|string',
+            'confirmarSenha' => 'required|string',
         ]);
         $user = new User;
-        $user->first_name = $request->fName;
-        $user->last_name = $request->lName;
+        $user->name = $request->name; 
         $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user->cpf = $request->cpf;
+        $user->telefone = $request->telefone;
+        $user->senha = bcrypt($request->senha);
+        $user->confirmarSenha = bcrypt($request->confirmarSenha);
+
         $user->save();
         return response()->json([
             'message' => 'Successfully created user!'
