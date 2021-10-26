@@ -1,38 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title> login </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title> login </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form method="post" action="">
-    <div class="login">
-      <h1>Login</h1>
-      <p>
-        <ion-item>
-          <ion-label position="floating" ngModel="email">E-mail</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-      </p>
-      <p>
-        <ion-item>
-          <ion-label position="floating" ngModel="password"
-            >Senha</ion-label
-          >
-          <ion-input></ion-input>
-        </ion-item>
-      </p>
-      <p>
-        <input type="submit" value="Login" (click)="login()" />
-      </p>
-      <p class="link">
-        Ainda não tem conta?
-        <ion-icon
-          name="person-add-outline"
-          (click)="register()"
-          class="icon"
-        ></ion-icon>
-      </p>
-    </div>
-  </form>
+    <form method="post" action="">
+        <div class="login">
+            <h1>Login</h1>
+            <p>
+                <ion-item>
+                    <ion-label position="floating" ngModel type="email" name="email">E-mail</ion-label>
+                    <ion-input></ion-input>
+                </ion-item>
+            </p>
+            <p>
+                <ion-item>
+                    <ion-label position="floating" ngModel type="password" name="password">Senha</ion-label>
+                    <ion-input></ion-input>
+                </ion-item>
+            </p>
+            <p>
+                <input type="submit" value="Login" (click)="login()" />
+            </p>
+            <p class="link">
+                Ainda não tem conta?
+                <ion-icon name="person-add-outline" (click)="register()" class="icon"></ion-icon>
+            </p>
+        </div>
+    </form>
 </ion-content>

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NativeStorage } from '@ionic-native/native-storage';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { tap } from 'rxjs/operators';
 import { login } from '../models/models.component';
 import { EnvService } from './env.service';

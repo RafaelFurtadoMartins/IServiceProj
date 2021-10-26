@@ -85,13 +85,14 @@ var LoginPage = /** @class */ (function () {
             console.log(error);
         }, function () {
             _this.dismissLogin();
-            _this.navCtrl.navigateRoot('feed-page');
+            _this.navCtrl.navigateRoot('home-page');
         });
     };
     LoginPage = __decorate([
         core_1.Component({
-            selector: 'page-login',
-            templateUrl: 'login.page.html'
+            selector: 'app-login',
+            templateUrl: './login.page.html',
+            styleUrls: ['./login.page.scss']
         })
     ], LoginPage);
     return LoginPage;

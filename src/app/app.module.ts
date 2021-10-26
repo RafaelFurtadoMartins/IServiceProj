@@ -9,9 +9,9 @@ import { LoginPageModule } from './login/login.module';
 import { FeedPageModule } from './feed/feed.module';
 import { LoginPageRoutingModule } from './login/login-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { NativeStorage } from '@ionic-native/native-storage';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +26,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 
   providers: [
     SplashScreen,
+    StatusBar,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeStorage,
 
