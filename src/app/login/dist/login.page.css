@@ -13,13 +13,9 @@ h1 {
   font-family: Arial, sans-serif;
   font-weight: bold;
   text-align: center;
-  padding-bottom: 30px;
-  margin-top: 10%;
-  margin-left: -15%;
-}
-
-h2 {
-  border-radius: 2px;
+  padding-bottom: 0%;
+  margin-top: 6%;
+  margin-left: -6%;
 }
 
 h1:after {
@@ -33,15 +29,15 @@ h1:after {
 }
 
 .icon {
-  font-size: 40px;
+  font-size: 26px;
   color: #066a75;
-  margin-left: 3%;
-  margin-top: 5%;
+  margin-left: 0%;
+  margin-top: 0%;
+  width: 13%;
 }
 
 p {
   margin-bottom: 15px;
-  border-radius: 15px;
 }
 
 .content p:first-child {
@@ -90,23 +86,17 @@ input[type=submit] {
 /*estilo do botão submit no hover */
 input[type=submit]:hover {
   background: #4ab3c6;
-  padding: 8px 10px 8px 0px;
 }
 
 .link {
   position: relative;
-  background: #e1eaeb;
-  color: #7f7c7c;
-  left: 0px;
+  color: #066a75;
+  left: -3%;
   height: 20px;
-  width: 95%;
-  padding: 17px 30px 20px 30px;
+  width: 98%;
   padding: 23px;
-  font-size: 16px;
-  text-align: right;
-  border-top: 1px solid #dbe5e8;
-  -webkit-border-radius: 0 0 5px 5px;
-  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .link a {
@@ -126,14 +116,15 @@ input[type=submit]:hover {
   border: 1px solid #4ab3c6;
 }
 
-.cadastro {
+.login {
   position: absolute;
-  top: 40px;
-  width: 90%;
-  padding: 18px 6px 6px 6px;
+  top: 15%;
+  width: 88%;
+  padding: 18px 6% 60px 6%;
   margin: 0 0 35px 0;
+  background: #00d6fd;
   border: 1px solid rgba(147, 184, 189, 0.8);
-  border-radius: 5px;
+  border-radius: 15px;
   -webkit-animation-duration: 0.5s;
   -webkit-animation-timing-function: ease;
   -webkit-animation-fill-mode: both;
@@ -141,5 +132,4 @@ input[type=submit]:hover {
   animation-timing-function: ease;
   animation-fill-mode: both;
   margin-left: 5%;
-  background-color: #00d6fd;
 }
