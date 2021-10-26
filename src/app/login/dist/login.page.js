@@ -88,6 +88,9 @@ var LoginPage = /** @class */ (function () {
             _this.navCtrl.navigateRoot('home-page');
         });
     };
+    LoginPage.prototype.register = function () {
+        this.navCtrl.navigateForward("register");
+    };
     LoginPage = __decorate([
         core_1.Component({
             selector: 'app-login',

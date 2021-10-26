@@ -10,43 +10,43 @@
 
             <p>
                 <ion-item>
-                    <ion-label position="floating" [(ngModel)]="nome">Nome</ion-label>
+                    <ion-label position="floating" ngModel name="name">Nome</ion-label>
                     <ion-input></ion-input>
                 </ion-item>
             </p>
             <p>
                 <ion-item>
-                    <ion-label position="floating" [(ngModel)]="email">E-mail</ion-label>
+                    <ion-label position="floating" type="email" ngModel name="email">E-mail</ion-label>
                     <ion-input></ion-input>
                 </ion-item>
             </p>
 
             <p>
                 <ion-item>
-                    <ion-label position="floating" [(ngModel)]="cpf">CPF</ion-label>
+                    <ion-label position="floating" ngModel name="cpf">CPF</ion-label>
                     <ion-input></ion-input>
                 </ion-item>
             </p>
             <p>
                 <ion-item>
-                    <ion-label position="floating" [(ngModel)]="telefone">Telefone</ion-label>
+                    <ion-label position="floating" ngModel name="telefone">Telefone</ion-label>
                     <ion-input></ion-input>
                 </ion-item>
             </p>
             <p>
                 <ion-item>
-                    <ion-label position="floating" [(ngModel)]="senha">Senha</ion-label>
+                    <ion-label position="floating" ngModel name="senha">Senha</ion-label>
                     <ion-input></ion-input>
                 </ion-item>
             </p>
             <p>
                 <ion-item>
-                    <ion-label position="floating" [(ngModel)]="confirmarSenha">Confirmar Senha</ion-label>
+                    <ion-label position="floating" ngModel name="confirmarSenha">Confirmar Senha</ion-label>
                     <ion-input></ion-input>
                 </ion-item>
             </p>
             <p>
-                <input type="submit" value="Cadastrar" (click)="register()" />
+                <input type="submit" value="Cadastrar" color="danger" (click)="register()" />
             </p>
 
         </form>

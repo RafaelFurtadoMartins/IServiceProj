@@ -4,6 +4,7 @@ import { RegisterPage } from '../register/register.page';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
+import { NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -49,6 +50,10 @@ export class LoginPage implements OnInit {
         this.navCtrl.navigateRoot('home-page');
       }
     );
+  }
+  register(){
+    
+    this.navCtrl.navigateForward("register");
   }
 
 }
