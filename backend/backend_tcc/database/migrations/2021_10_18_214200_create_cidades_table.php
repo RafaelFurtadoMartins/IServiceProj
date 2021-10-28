@@ -14,7 +14,10 @@ class CreateCidadesTable extends Migration
     public function up()
     {
         Schema::create('cidades', function (Blueprint $table) {
-            $table->id();
+            $table->id('Id_cidade');
+            $table->string('Nome_cidade');
+            $table->integer('Id_estado')->unsigned();
+            $table->foreign('Id_estado')->references('Id_estado')->on('estado');
             $table->timestamps();
         });
     }

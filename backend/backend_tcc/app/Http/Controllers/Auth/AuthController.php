@@ -37,17 +37,17 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'cpf' => 'required|string',
-            'telefone' => 'required|string',
-            'senha' => 'required|string',
-            'confirmarSenha' => 'required|string',
+            'telephone' => 'required|string',
+            'password' => 'required|string',
+            'confirm_password' => 'required|string',
         ]);
         $user = new User;
         $user->name = $request->name; 
         $user->email = $request->email;
         $user->cpf = $request->cpf;
-        $user->telefone = $request->telefone;
-        $user->senha = bcrypt($request->senha);
-        $user->confirmarSenha = bcrypt($request->confirmarSenha);
+        $user->telephone = $request->telephone;
+        $user->password = bcrypt($request->password);
+        $user->confirm_password = bcrypt($request->confirm_password);
 
         $user->save();
         return response()->json([
