@@ -22,6 +22,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     LoginPageModule,
     RegisterPageModule,
     HttpClientModule,
+    
   ],
 
   providers: [

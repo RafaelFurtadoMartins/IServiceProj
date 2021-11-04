@@ -80,7 +80,9 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage.prototype.register = function (form) {
         var _this = this;
-        this.authService.register(form.value.name, form.value.email, form.value.cpf, form.value.telephone, form.value.password, form.value.confirm_password).subscribe(function (data) {
+        this.authService.register(form.value.name, form.value.email, form.value.cpf, form.value.telephone).subscribe(
+        // form.value.password, form.value.confirm_password
+        function (data) {
             _this.authService.login(form.value.email, form.value.password).subscribe(function (data) {
             }, function (error) {
                 console.log(error);

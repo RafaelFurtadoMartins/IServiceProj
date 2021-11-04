@@ -38,7 +38,8 @@ export class RegisterPage implements OnInit {
 
   register(form: NgForm) {
     this.authService.register(form.value.name, form.value.email, form.value.cpf, 
-      form.value.telephone, form.value.password, form.value.confirm_password).subscribe(
+      form.value.telephone, ).subscribe(
+        // form.value.password, form.value.confirm_password
       data => {
         this.authService.login(form.value.email, form.value.password).subscribe(
           data => {
