@@ -14,9 +14,10 @@ export class AuthService {
   token:any;
 
   constructor(
-    public http: HttpClient,
+    private http: HttpClient,
     private storage: NativeStorage,
-    private env: EnvService,
+    private env: EnvService
+    
   ) { }
 
   login(email: String, password: String) {
