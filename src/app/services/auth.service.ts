@@ -14,7 +14,7 @@ export class AuthService {
   token:any;
 
   constructor(
-    private http: HttpClient,
+    public http: HttpClient,
     private storage: NativeStorage,
     private env: EnvService,
   ) { }

@@ -33,6 +33,6 @@ class CreatePrestadoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prestadors');
+        Schema::dropIfExists('prestadores');
     }
 }
