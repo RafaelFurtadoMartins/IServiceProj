@@ -18,9 +18,9 @@ class Register extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('cpf')->unique();
-            $table->string('telephone')->unique();
-            $table->string('password');
-            $table->string('confirm_password');
+            $table->string('telefone')->unique();
+            $table->string('senha');
+            $table->string('confirmar_senha');
         });
     }
 

@@ -10,6 +10,8 @@ import { EnvService } from './env.service';
 })
 
 export class AuthService {
+  // baseUrl = 'http://127.0.0.1:8000/login'; //I added a '/' to the end
+
   isLoggedIn = false;
   token:any;
 

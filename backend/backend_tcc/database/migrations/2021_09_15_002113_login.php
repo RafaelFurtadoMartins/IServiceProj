@@ -16,7 +16,7 @@ class Login extends Migration
         Schema::create('login', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('senha');
 
         });
     }

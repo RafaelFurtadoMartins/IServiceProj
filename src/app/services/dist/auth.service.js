@@ -15,6 +15,7 @@ var AuthService = /** @class */ (function () {
         this.http = http;
         this.storage = storage;
         this.env = env;
+        // baseUrl = 'http://127.0.0.1:8000/login'; //I added a '/' to the end
         this.isLoggedIn = false;
     }
     AuthService.prototype.login = function (email, password) {

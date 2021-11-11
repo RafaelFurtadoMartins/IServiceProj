@@ -8,10 +8,10 @@
                 Cadastro</h1>
 
 
-            <form #form="ngForm" (ngSubmit)="register(form)" method="post">
+            <f4orm #form="ngForm" (ngSubmit)="register(form)" method="post">
                 <ion-item>
                     <ion-label position="floating">Nome</ion-label>
-                    <ion-input ngModel name="name"></ion-input>
+                    <ion-input ngModel name="nome"></ion-input>
                 </ion-item>
                 <br>
                 <ion-item>
@@ -28,7 +28,7 @@
 
                 <ion-item>
                     <ion-label position="floating">Telefone</ion-label>
-                    <ion-input ngModel name="telephone"></ion-input>
+                    <ion-input ngModel name="telefone"></ion-input>
                 </ion-item>
                 <br>
 
@@ -40,11 +40,11 @@
 
                 <ion-item>
                     <ion-label position="floating"> Confirmar Senha</ion-label>
-                    <ion-input type="password" ngModel name="confirm_password"></ion-input>
+                    <ion-input type="password" ngModel name="confirmar_senha"></ion-input>
                 </ion-item>
 
                 <ion-button type="submit" expand="full" color="danger">Register</ion-button>
-            </form>
+            </f4orm>
             <p text-center></p>
 
         </form>
