@@ -8,7 +8,7 @@
                 Cadastro</h1>
 
 
-            <f4orm #form="ngForm" (ngSubmit)="register(form)" method="post">
+            <form #form="ngForm" (ngSubmit)="register(form)" method="post">
                 <ion-item>
                     <ion-label position="floating">Nome</ion-label>
                     <ion-input ngModel name="nome"></ion-input>
@@ -44,7 +44,7 @@
                 </ion-item>
 
                 <ion-button type="submit" expand="full" color="danger">Register</ion-button>
-            </f4orm>
+            </form>
             <p text-center></p>
 
         </form>
