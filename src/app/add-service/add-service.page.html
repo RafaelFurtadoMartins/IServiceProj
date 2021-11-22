@@ -1,55 +1,63 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Adicionar Serviços</ion-title>
-      <ion-icon name="download-outline"></ion-icon>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Adicionar Serviços</ion-title>
+        <ion-icon name="download-outline"></ion-icon>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="service">
-    <ion-item>
-    
-        <ion-label>Categoria
-      </ion-label>
-      <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="">
-        <ion-select-option value="red">Serviços Gerais</ion-select-option>
-        <ion-select-option value="purple">Taxi</ion-select-option>
-      </ion-select>
-  
-    </ion-item>
-  
-<p>
-    <ion-item>
-      <ion-label> Sub-Categoria
-      </ion-label>
-      <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="">
-        <ion-select-option value="red">Serviços Gerais</ion-select-option>
-        <ion-select-option value="purple">Encanador</ion-select-option>
-        <ion-select-option value="purple">Eletricista</ion-select-option>
-        <ion-select-option value="purple">Servente</ion-select-option>
-    
-      </ion-select>
-    </ion-item>
-    </p>
-    <p>
-       <ion-item>
-    <ion-label position="floating">Serviço</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-    </p>
- <p>
-    <ion-item>
-    <ion-label position="floating">Descrição</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
- </p>
- 
+    <div class="service">
+        <ion-item>
 
-  <ion-list>
-    <ion-list>  
-    </ion-list>
-  </ion-list>
-  <ion-button (click)="add_service()"> Adicionar</ion-button>
+            <ion-label>Categoria
+            </ion-label>
+            <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="">
+                <ion-select-option value="red">Serviços Gerais</ion-select-option>
+                <ion-select-option value="purple">Taxi</ion-select-option>
+                <ion-select-option value="purple">teste</ion-select-option>
 
-   </div>
+            </ion-select>
+
+        </ion-item>
+
+        <p>
+            <ion-item>
+                <ion-label> Sub-Categoria
+                </ion-label>
+                <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="">
+                    <ion-select-option value="red">Serviços Gerais</ion-select-option>
+                    <ion-select-option value="purple">Encanador</ion-select-option>
+                    <ion-select-option value="purple">Eletricista</ion-select-option>
+                    <ion-select-option value="purple">Servente</ion-select-option>
+
+                </ion-select>
+            </ion-item>
+        </p>
+        <p>
+            <ion-item>
+                <ion-label position="floating" ngModel type="servico">Serviço</ion-label>
+                <ion-input></ion-input>
+            </ion-item>
+        </p>
+        <p>
+            <ion-item>
+                <ion-label position="floating" ngModel type="descricao">Descrição</ion-label>
+                <ion-input></ion-input>
+            </ion-item>
+        </p>
+        <p>
+            <ion-item>
+                <ion-label position="floating" ngModel type="cidade">Cidade</ion-label>
+                <ion-input></ion-input>
+            </ion-item>
+        </p>
+
+
+        <ion-list>
+            <ion-list>
+            </ion-list>
+        </ion-list>
+        <ion-button (click)="add_service()"> Adicionar</ion-button>
+
+    </div>
 </ion-content>

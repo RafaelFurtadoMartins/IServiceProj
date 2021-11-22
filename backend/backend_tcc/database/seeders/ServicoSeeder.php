@@ -13,6 +13,5 @@ class ServicoSeeder extends Seeder
      */
     public function run()
     {
-        //
     }
 }

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class servico extends Model
 {
     use HasFactory;
+    protected $table = 'add_service';
 }

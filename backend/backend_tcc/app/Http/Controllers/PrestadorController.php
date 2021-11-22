@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\prestador;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
 
 class PrestadorController extends Controller
 {
@@ -14,7 +15,7 @@ class PrestadorController extends Controller
      */
     public function index()
     {
-        //
+        Return prestador::all();
     }
 
     /**
@@ -26,6 +27,7 @@ class PrestadorController extends Controller
     {
         //
     }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +37,14 @@ class PrestadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $prestador = new prestador();
+        $prestador->nome = $request->nome;
+        $prestador->email = $request->email;
+        $prestador->cpf = $request->cpf;
+        $prestador->telefone =$request->telefone;
+        $prestador->senha = $request->senha;
+        $prestador->save();
+        return $prestador;
     }
 
     /**
@@ -46,7 +55,7 @@ class PrestadorController extends Controller
      */
     public function show(prestador $prestador)
     {
-        //
+        return $prestador;
     }
 
     /**
@@ -66,10 +75,19 @@ class PrestadorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\prestador  $prestador
      * @return \Illuminate\Http\Response
+     * 
+     * 
+     * 
      */
     public function update(Request $request, prestador $prestador)
     {
-        //
+        $prestador->nome = $request->nome;
+        $prestador->email = $request->email;
+        $prestador->cpf = $request->cpf;
+        $prestador->telefone =$request->telefone;
+        $prestador->senha = $request->senha;
+        $prestador->save();
+        return $prestador;
     }
 
     /**
@@ -80,6 +98,6 @@ class PrestadorController extends Controller
      */
     public function destroy(prestador $prestador)
     {
-        //
+        $prestador->delete();
     }
 }

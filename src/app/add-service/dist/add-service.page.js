@@ -42,73 +42,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.RegisterPage = void 0;
+exports.AddServicePage = void 0;
 var core_1 = require("@angular/core");
-var login_page_1 = require("../login/login.page");
-var RegisterPage = /** @class */ (function () {
-    function RegisterPage(modalController, authService, toastController, navCtrl, alertService) {
-        this.modalController = modalController;
-        this.authService = authService;
-        this.toastController = toastController;
-        this.navCtrl = navCtrl;
-        this.alertService = alertService;
+var AddServicePage = /** @class */ (function () {
+    function AddServicePage(cadastrar) {
+        this.cadastrar = cadastrar;
+        this.service = ;
     }
-    RegisterPage.prototype.ngOnInit = function () {
+    AddServicePage.prototype.ngOnInit = function () {
     };
-    // Dismiss Register Modal
-    RegisterPage.prototype.dismissRegister = function () {
-        this.modalController.dismiss();
-    };
-    // On Login button tap, dismiss Register modal and open login Modal
-    RegisterPage.prototype.loginModal = function () {
+    AddServicePage.prototype.salvar = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var loginModal;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        this.dismissRegister();
-                        return [4 /*yield*/, this.modalController.create({
-                                component: login_page_1.LoginPage
-                            })];
-                    case 1:
-                        loginModal = _a.sent();
-                        return [4 /*yield*/, loginModal.present()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
+                this.cadastrar.cadastrar(this.service).subscribe(function (retorno) {
+                    // this.service = retorno;
+                });
+                return [2 /*return*/];
             });
         });
     };
-    RegisterPage.prototype.register = function (form) {
-        var _this = this;
-        this.authService.register(form.value.nome, form.value.email, form.value.cpf, form.value.telefone).subscribe(
-        // form.value.password, form.value.confirm_password
-        function (data) {
-            _this.authService.login(form.value.email, form.value.password).subscribe(function (data) {
-            }, function (error) {
-                console.log(error);
-            }, function () {
-                _this.dismissRegister();
-                _this.navCtrl.navigateRoot('/login');
-            });
-            _this.alertService.presentToast(data['message']);
-        }, function (error) {
-            console.log(error);
-        }, function () {
-        });
-    };
-    RegisterPage.prototype.home = function () {
-        this.navCtrl.back();
-    };
-    RegisterPage.prototype.confirmarSenha = function () {
-    };
-    ;
-    RegisterPage = __decorate([
+    AddServicePage = __decorate([
         core_1.Component({
-            selector: 'app-register',
-            templateUrl: './register.page.html',
-            styleUrls: ['./register.page.scss']
+            selector: 'app-add-service',
+            templateUrl: './add-service.page.html',
+            styleUrls: ['./add-service.page.scss']
         })
-    ], RegisterPage);
-    return RegisterPage;
+    ], AddServicePage);
+    return AddServicePage;
 }());
-exports.RegisterPage = RegisterPage;
+exports.AddServicePage = AddServicePage;

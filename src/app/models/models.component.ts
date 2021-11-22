@@ -8,12 +8,13 @@ export class register{
   public email: string;
   public cpf: string;
   public senha: string;
-  public confirmarsenha: string;
-
-  public telefone: number;
+  public telefone: string;
 }
-export class add_service{
+export class service{
 public categoria: string;
+public sub_categoria: string;
 public servico: string;
 public descricao: string;
+public cidade: string;
+
 }

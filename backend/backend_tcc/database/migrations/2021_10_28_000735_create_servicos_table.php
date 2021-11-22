@@ -16,12 +16,12 @@ class CreateServicosTable extends Migration
         Schema::create('servicos', function (Blueprint $table) {
             $table->id('Id_servico');
             $table->string('Titulo_servico');
-            $table->string('Descricacao_servico');
-            $table->integer('Id_subcategoria')->unsigned();
-            $table->foreign('Id_subcategoria')->references('Id_subcategoria')->on('subcategoria');
+            $table->string('Descricao_servico');
+            $table->string('Categoria');
+            $table->string('Subcategoria');
             $table->integer('Id_prestador')->unsigned();
             $table->foreign('Id_prestador')->references('Id_prestador')->on('prestador');
-            $table->boolean('Status_servico');
+            $table->string('Cidade_Estado');
             $table->timestamps();
         });
     }

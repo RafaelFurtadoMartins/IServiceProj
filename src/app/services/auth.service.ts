@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TemplateDefinitionBuilder } from '@angular/compiler/src/render3/view/template';
 import { Injectable } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { tap } from 'rxjs/operators';
@@ -21,7 +22,7 @@ export class AuthService {
   ) { }
 
   login(email: String, password: String) {
-    return this.http.post(this.env.API_URL + 'auth/login',
+    return this.http.post(this.env.API_URL + 'login',
       {email: email, password: password}
     ).pipe(
       tap(token => {
@@ -38,10 +39,11 @@ export class AuthService {
       }),
     );
   }
+ //falta colocar campo de telefone 
 
-  register(fName: String, lName: String, email: String, password: String) {
-    return this.http.post(this.env.API_URL + 'auth/register',
-      {fName: fName, lName: lName, email: email, password: password}
+  register(nome: String, email: String, cpf: String, password: String) {
+    return this.http.post(this.env.API_URL + 'register',
+      {nome: nome, email: email, cpf: cpf, password: password}
     )
   }
 

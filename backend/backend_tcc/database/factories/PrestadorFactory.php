@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\prestador;
+use App\Models\Prestador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PrestadorFactory extends Factory
@@ -12,7 +12,7 @@ class PrestadorFactory extends Factory
      *
      * @var string
      */
-    protected $model = prestador::class;
+    protected $model = Prestador::class;
 
     /**
      * Define the model's default state.

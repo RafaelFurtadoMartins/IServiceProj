@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\servico;
+use App\Models\Servico;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ServicoFactory extends Factory
@@ -12,7 +12,7 @@ class ServicoFactory extends Factory
      *
      * @var string
      */
-    protected $model = servico::class;
+    protected $model = Servico::class;
 
     /**
      * Define the model's default state.
