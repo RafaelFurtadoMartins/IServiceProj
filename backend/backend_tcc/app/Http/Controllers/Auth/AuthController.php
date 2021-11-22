@@ -18,7 +18,7 @@ class AuthController extends Controller
                 'message' => 'Unauthorized'
             ], 401);
         $user = $request->user();
-        $tokenResult = $user->createToken('Personal Access Token');
+        $tokenResult = $user->createToken('usuario não cadastrado!');
         $token = $tokenResult->token;
         if ($request->remember_me)
             $token->expires_at = Carbon::now()->addWeeks(1);
