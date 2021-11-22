@@ -23,12 +23,7 @@ const routes: Routes = [
   {
     path: 'add-service',
     loadChildren: () => import('./add-service/add-service.module').then( m => m.AddServicePageModule)
-  },  {
-    path: 'landing',
-    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
-
-
 
 
 ];

@@ -9,9 +9,8 @@ exports.__esModule = true;
 exports.EnvService = void 0;
 var core_1 = require("@angular/core");
 var EnvService = /** @class */ (function () {
-    // tirei o endereço de url parou o erro do cors :http://127.0.0.1:8000/
     function EnvService() {
-        this.API_URL = '';
+        this.API_URL = 'http://localhost:8000/api/auth/login';
     }
     EnvService = __decorate([
         core_1.Injectable({

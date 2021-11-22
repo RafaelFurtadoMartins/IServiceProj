@@ -19,7 +19,7 @@ var AuthService = /** @class */ (function () {
     }
     AuthService.prototype.login = function (email, password) {
         var _this = this;
-        return this.http.post(this.env.API_URL + 'login', { email: email, password: password }).pipe(operators_1.tap(function (token) {
+        return this.http.post(this.env.API_URL, { email: email, password: password }).pipe(operators_1.tap(function (token) {
             _this.storage.setItem('token', token)
                 .then(function () {
                 console.log('Token Stored');
@@ -29,6 +29,7 @@ var AuthService = /** @class */ (function () {
             return token;
         }));
     };
+    //
     //falta colocar campo de telefone 
     AuthService.prototype.register = function (nome, email, cpf, password) {
         return this.http.post(this.env.API_URL + 'register', { nome: nome, email: email, cpf: cpf, password: password });

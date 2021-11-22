@@ -3,7 +3,7 @@ import { TemplateDefinitionBuilder } from '@angular/compiler/src/render3/view/te
 import { Injectable } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { tap } from 'rxjs/operators';
-import { login } from '../models/models.component';
+import { prestadores } from '../models/models.prestadores.component';
 import { EnvService } from './env.service';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class AuthService {
   ) { }
 
   login(email: String, password: String) {
-    return this.http.post(this.env.API_URL + 'login',
+    return this.http.post(this.env.API_URL,
       {email: email, password: password}
     ).pipe(
       tap(token => {
@@ -39,6 +39,8 @@ export class AuthService {
       }),
     );
   }
+//
+
  //falta colocar campo de telefone 
 
   register(nome: String, email: String, cpf: String, password: String) {
@@ -68,7 +70,7 @@ export class AuthService {
       'Authorization': this.token["token_type"]+" "+this.token["access_token"]
     });
 
-    return this.http.get<login>(this.env.API_URL + 'auth/user', { headers: headers })
+    return this.http.get<prestadores>(this.env.API_URL + 'auth/user', { headers: headers })
     .pipe(
       tap(user => {
         return user;
@@ -94,3 +96,4 @@ export class AuthService {
     );
   }
 }
+
