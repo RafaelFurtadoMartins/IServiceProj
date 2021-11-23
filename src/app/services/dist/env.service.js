@@ -11,6 +11,8 @@ var core_1 = require("@angular/core");
 var EnvService = /** @class */ (function () {
     function EnvService() {
         this.API_URL = 'http://localhost:8000/api/auth/login';
+        this.API_URLr = 'http://localhost:8000/api/auth/register';
+        this.API_URLservice = '';
     }
     EnvService = __decorate([
         core_1.Injectable({

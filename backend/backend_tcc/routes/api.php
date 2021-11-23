@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'prefix' => 'auth'
 ], function () {
-    Route::get('login', 'Auth\AuthController@login')->name('login');
-    Route::get('register', 'Auth\AuthController@register');
+    Route::post('login', 'Auth\AuthController@login')->name('login');
+    Route::post('register', 'Auth\AuthController@register');
     Route::group([
       'middleware' => 'auth:api'
     ], function() {

@@ -9,11 +9,13 @@ exports.__esModule = true;
 exports.AddServicePage = void 0;
 var core_1 = require("@angular/core");
 var AddServicePage = /** @class */ (function () {
-    // public service: service = {};
-    function AddServicePage(cadastrar) {
-        this.cadastrar = cadastrar;
+    function AddServicePage(authService) {
+        this.authService = authService;
     }
     AddServicePage.prototype.ngOnInit = function () {
+    };
+    AddServicePage.prototype.cadastrar = function (form) {
+        this;
     };
     AddServicePage = __decorate([
         core_1.Component({

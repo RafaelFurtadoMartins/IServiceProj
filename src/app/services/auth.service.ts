@@ -21,9 +21,9 @@ export class AuthService {
     
   ) { }
 
-  login(email: String, password: String) {
+  login(email: String, senha: String) {
     return this.http.post(this.env.API_URL,
-      {email: email, password: password}
+      {email: email, password: senha}
     ).pipe(
       tap(token => {
         this.storage.setItem('token', token)
@@ -43,9 +43,9 @@ export class AuthService {
 
  //falta colocar campo de telefone 
 
-  register(nome: String, email: String, cpf: String, password: String) {
-    return this.http.post(this.env.API_URL + 'register',
-      {nome: nome, email: email, cpf: cpf, password: password}
+  register(nome: String, email: String, cpf: String, telefone: String, senha: String) {
+    return this.http.post(this.env.API_URLr, 
+      {nome: nome, email: email, cpf: cpf,telefone: telefone , password: senha}
     )
   }
 
@@ -95,5 +95,8 @@ export class AuthService {
       }
     );
   }
+  // public cadastrar(service: service) {
+  //   return this.http.post(this.API_URL, service);
+  // }
 }
 
