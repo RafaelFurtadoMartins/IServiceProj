@@ -15,15 +15,11 @@ class CreatePrestadoresTable extends Migration
     {
         Schema::create('prestadores', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('email')->unique();
-            $table->string('cpf')->unique();
-            $table->string('telefone')->unique();
-            $table->string('senha');
+            $table->foreignId('user_id')->unique()->constrained();
+            $table->timestamps();
         });
     }
 
-    
     /**
      * Reverse the migrations.
      *

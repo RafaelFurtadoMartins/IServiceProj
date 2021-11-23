@@ -14,13 +14,13 @@ class CreateServicosTable extends Migration
     public function up()
     {
         Schema::create('servicos', function (Blueprint $table) {
-            $table->id('Id_servico');
-            $table->string('Titulo_servico');
+            $table->id('Id_service');
+            $table->string('Titulo_service');
             $table->string('Descricao_servico');
             $table->string('Categoria');
             $table->string('Subcategoria');
-            $table->integer('Id_prestador')->unsigned();
-            $table->foreign('Id_prestador')->references('Id_prestador')->on('prestador');
+            $table->unsignedBigInteger('id_prestador');
+            $table->foreign('id_prestador')->references('id_prestador')->on('users')->onDelete('cascade');
             $table->string('Cidade_Estado');
             $table->timestamps();
         });
