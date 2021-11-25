@@ -10,6 +10,7 @@ exports.AuthService = void 0;
 var http_1 = require("@angular/common/http");
 var core_1 = require("@angular/core");
 var operators_1 = require("rxjs/operators");
+var models_servicos_component_1 = require("../models/models.servicos.component");
 var AuthService = /** @class */ (function () {
     function AuthService(http, storage, env) {
         this.http = http;
@@ -17,9 +18,15 @@ var AuthService = /** @class */ (function () {
         this.env = env;
         this.isLoggedIn = false;
     }
-    AuthService.prototype.login = function (email, senha) {
+    AuthService.prototype.registerServico = function (categoria, subCategoria, servico, cidade) {
+        return this.http.post(this.env.API_URLservice, {
+            categoria: categoria, subCategoria: subCategoria,
+            servico: models_servicos_component_1.service, cidade: cidade
+        });
+    };
+    AuthService.prototype.login = function (email, password) {
         var _this = this;
-        return this.http.post(this.env.API_URL, { email: email, password: senha }).pipe(operators_1.tap(function (token) {
+        return this.http.post(this.env.API_URLlogin, { email: email, password: password }).pipe(operators_1.tap(function (token) {
             _this.storage.setItem('token', token)
                 .then(function () {
                 console.log('Token Stored');
@@ -29,17 +36,15 @@ var AuthService = /** @class */ (function () {
             return token;
         }));
     };
-    //
-    //falta colocar campo de telefone 
-    AuthService.prototype.register = function (nome, email, cpf, telefone, senha) {
-        return this.http.post(this.env.API_URLr, { nome: nome, email: email, cpf: cpf, telefone: telefone, password: senha });
+    AuthService.prototype.register = function (name, email, cpf, telephone, password) {
+        return this.http.post(this.env.API_URLregister, { name: name, email: email, cpf: cpf, telephone: telephone, password: password });
     };
     AuthService.prototype.logout = function () {
         var _this = this;
         var headers = new http_1.HttpHeaders({
             'Authorization': this.token["token_type"] + " " + this.token["access_token"]
         });
-        return this.http.get(this.env.API_URL + 'auth/logout', { headers: headers })
+        return this.http.get(this.env.API_URLlogout + 'auth/logout', { headers: headers })
             .pipe(operators_1.tap(function (data) {
             _this.storage.remove("token");
             _this.isLoggedIn = false;
@@ -47,15 +52,17 @@ var AuthService = /** @class */ (function () {
             return data;
         }));
     };
-    AuthService.prototype.user = function () {
-        var headers = new http_1.HttpHeaders({
-            'Authorization': this.token["token_type"] + " " + this.token["access_token"]
-        });
-        return this.http.get(this.env.API_URL + 'auth/user', { headers: headers })
-            .pipe(operators_1.tap(function (user) {
-            return user;
-        }));
-    };
+    // user() {
+    //   const headers = new HttpHeaders({
+    //     'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+    //   });
+    //   return this.http.get<prestadores>(this.env.API_URL + 'auth/user', { headers: headers })
+    //   .pipe(
+    //     tap(user => {
+    //       return user;
+    //     })
+    //   )
+    // }
     AuthService.prototype.getToken = function () {
         var _this = this;
         return this.storage.getItem('token').then(function (data) {

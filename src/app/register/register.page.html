@@ -1,53 +1,51 @@
-<ion-content>
-    <div class="cadastro">
+<ion-header>
+    <ion-toolbar>
+        <ion-button color="light" (click)="dismissRegister()">Close</ion-button>
+        <ion-title>Register</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form #form="ngForm" (ngSubmit)="register(form)" method="post">
+        <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input ngModel name="nome"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input ngModel name="email"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+            <ion-label position="floating">CPF</ion-label>
+            <ion-input ngModel name="cpf"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+            <ion-label position="floating">Telefone</ion-label>
+            <ion-input ngModel name="telefone"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input type="password" ngModel name="password"></ion-input>
+        </ion-item>
+        <br>
+
+        <ion-item>
+            <ion-label position="floating"> Confirmar Senha</ion-label>
+            <ion-input type="password" ngModel name="confirmar_senha"></ion-input>
+        </ion-item>
 
 
-        <form method="post" action="">
-            <h1>
-                <ion-icon name="chevron-back-circle-outline" (click)="home()" class="icon"></ion-icon>
-                Cadastro</h1>
+        <ion-button type="submit" expand="full" color="danger">Register</ion-button>
+    </form>
 
-
-            <form #form="ngForm" (ngSubmit)="register(form)" method="post">
-                <ion-item>
-                    <ion-label position="floating">Nome</ion-label>
-                    <ion-input ngModel name="nome"></ion-input>
-                </ion-item>
-                <br>
-                <ion-item>
-                    <ion-label position="floating">E-mail</ion-label>
-                    <ion-input ngModel name="email"></ion-input>
-                </ion-item>
-                <br>
-
-                <ion-item>
-                    <ion-label position="floating">CPF</ion-label>
-                    <ion-input ngModel name="cpf"></ion-input>
-                </ion-item>
-                <br>
-
-                <ion-item>
-                    <ion-label position="floating">Telefone</ion-label>
-                    <ion-input ngModel name="telefone"></ion-input>
-                </ion-item>
-                <br>
-
-                <ion-item>
-                    <ion-label position="floating">Senha</ion-label>
-                    <ion-input type="password" ngModel name="password"></ion-input>
-                </ion-item>
-                <br>
-
-                <ion-item>
-                    <ion-label position="floating"> Confirmar Senha</ion-label>
-                    <ion-input type="password" ngModel name="confirmar_senha"></ion-input>
-                </ion-item>
-
-
-                <ion-button type="submit" expand="full" (click)="register()" color="danger">Register</ion-button>
-            </form>
-            <p text-center></p>
-
-        </form>
-    </div>
+    <p text-center>Already have a account?</p>
+    <ion-button expand="full" color="primary" (click)="loginModal()">Login</ion-button>
 </ion-content>

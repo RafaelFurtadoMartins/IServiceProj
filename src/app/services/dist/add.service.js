@@ -5,12 +5,12 @@
 //   providedIn: 'root'
 // })
 // export class CadastroService {
-// public API_URL = ''; //adicionar url backend, se ñ me engano
+// public API_URL = 'http://localhost:8000/api/servico'; 
 //   constructor(
 //     private http: HttpClient,
-//   ) { }
-
-//   public cadastrar(service: service) {
+//   ) {
+//    }
+//   public registerServico(service: service) {
 //     return this.http.post(this.API_URL, service);
 //   }
 // }

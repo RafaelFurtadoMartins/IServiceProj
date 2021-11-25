@@ -5,6 +5,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { tap } from 'rxjs/operators';
 import { prestadores } from '../models/models.prestadores.component';
 import { EnvService } from './env.service';
+import { service } from '../models/models.servicos.component';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,18 @@ export class AuthService {
     
   ) { }
 
-  login(email: String, senha: String) {
-    return this.http.post(this.env.API_URL,
-      {email: email, password: senha}
+   registerServico(categoria: String, subCategoria: String,
+    servico: String, cidade: String) 
+    {
+    return this.http.post(this.env.API_URLservice,{
+      categoria: categoria, subCategoria: subCategoria,
+      servico: service, cidade: cidade }
+    )
+  }
+
+  login(email: String, password: String) {
+    return this.http.post(this.env.API_URLlogin,
+      {email: email, password: password}
     ).pipe(
       tap(token => {
         this.storage.setItem('token', token)
@@ -39,13 +49,11 @@ export class AuthService {
       }),
     );
   }
-//
 
- //falta colocar campo de telefone 
 
-  register(nome: String, email: String, cpf: String, telefone: String, senha: String) {
-    return this.http.post(this.env.API_URLr, 
-      {nome: nome, email: email, cpf: cpf,telefone: telefone , password: senha}
+  register(name: String, email: String, cpf: String, telephone: String, password: String) {
+    return this.http.post(this.env.API_URLregister, 
+      {name: name, email: email, cpf: cpf, telephone: telephone, password: password}
     )
   }
 
@@ -54,7 +62,7 @@ export class AuthService {
       'Authorization': this.token["token_type"]+" "+this.token["access_token"]
     });
 
-    return this.http.get(this.env.API_URL + 'auth/logout', { headers: headers })
+    return this.http.get(this.env.API_URLlogout + 'auth/logout', { headers: headers })
     .pipe(
       tap(data => {
         this.storage.remove("token");
@@ -65,18 +73,19 @@ export class AuthService {
     )
   }
 
-  user() {
-    const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"]+" "+this.token["access_token"]
-    });
+  
+  // user() {
+  //   const headers = new HttpHeaders({
+  //     'Authorization': this.token["token_type"]+" "+this.token["access_token"]
+  //   });
 
-    return this.http.get<prestadores>(this.env.API_URL + 'auth/user', { headers: headers })
-    .pipe(
-      tap(user => {
-        return user;
-      })
-    )
-  }
+  //   return this.http.get<prestadores>(this.env.API_URL + 'auth/user', { headers: headers })
+  //   .pipe(
+  //     tap(user => {
+  //       return user;
+  //     })
+  //   )
+  // }
 
   getToken() {
     return this.storage.getItem('token').then(

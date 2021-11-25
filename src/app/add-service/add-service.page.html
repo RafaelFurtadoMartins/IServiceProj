@@ -7,14 +7,14 @@
 
 <ion-content>
     <div class="service">
-        <ion-item>
+        <!-- <ion-item>
 
             <ion-label>Categoria
             </ion-label>
             <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="">
-                <ion-select-option value="red">Serviços Gerais</ion-select-option>
-                <ion-select-option value="purple">Taxi</ion-select-option>
-                <ion-select-option value="purple">teste</ion-select-option>
+                <ion-select-option value="servico">Serviços Gerais</ion-select-option>
+                <ion-select-option value="taxi">Taxi</ion-select-option>
+                <ion-select-option value="teste">teste</ion-select-option>
 
             </ion-select>
 
@@ -25,29 +25,29 @@
                 <ion-label> Sub-Categoria
                 </ion-label>
                 <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="">
-                    <ion-select-option value="red">Serviços Gerais</ion-select-option>
-                    <ion-select-option value="purple">Encanador</ion-select-option>
-                    <ion-select-option value="purple">Eletricista</ion-select-option>
-                    <ion-select-option value="purple">Servente</ion-select-option>
+                    <ion-select-option value="servicos">Serviços Gerais</ion-select-option>
+                    <ion-select-option value="Encanador">Encanador</ion-select-option>
+                    <ion-select-option value="eletricista">Eletricista</ion-select-option>
+                    <ion-select-option value="servente">Servente</ion-select-option>
 
                 </ion-select>
             </ion-item>
-        </p>
+        </p> -->
         <p>
             <ion-item>
-                <ion-label position="floating" name="servico">Serviço</ion-label>
+                <ion-label position="floating" type="servico" ngModel name="servico">Serviço</ion-label>
                 <ion-input></ion-input>
             </ion-item>
         </p>
         <p>
             <ion-item>
-                <ion-label position="floating" name="descricao">Descrição</ion-label>
+                <ion-label position="floating" type="descricao" ngModel name="descricao">Descrição</ion-label>
                 <ion-input></ion-input>
             </ion-item>
         </p>
         <p>
             <ion-item>
-                <ion-label position="floating" name="cidade">Cidade</ion-label>
+                <ion-label position="floating" type="cidade" ngModel name="cidade">Cidade</ion-label>
                 <ion-input></ion-input>
             </ion-item>
         </p>

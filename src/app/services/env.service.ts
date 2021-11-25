@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EnvService {
-  API_URL = 'http://localhost:8000/api/auth/login';
-  API_URLr = 'http://localhost:8000/api/auth/register';
-  API_URLservice = '';
+  API_URLlogin = '';
+  API_URLregister = 'http://localhost:8000/api/user';
+  API_URLservice = 'http://localhost:8000/api/servico';
+  API_URLlogout = '';
+
   constructor() { }
 }

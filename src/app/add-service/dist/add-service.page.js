@@ -9,13 +9,11 @@ exports.__esModule = true;
 exports.AddServicePage = void 0;
 var core_1 = require("@angular/core");
 var AddServicePage = /** @class */ (function () {
-    function AddServicePage(authService) {
-        this.authService = authService;
+    function AddServicePage() {
     }
     AddServicePage.prototype.ngOnInit = function () {
     };
     AddServicePage.prototype.cadastrar = function (form) {
-        this;
     };
     AddServicePage = __decorate([
         core_1.Component({
@@ -27,3 +25,6 @@ var AddServicePage = /** @class */ (function () {
     return AddServicePage;
 }());
 exports.AddServicePage = AddServicePage;
+// register(form: NgForm) {
+//   this.authService.register(form.value.name, form.value.email, form.value.telephone, form.value.cpf, 
+//     form.value.password).subscribe(
