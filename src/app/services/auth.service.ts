@@ -52,10 +52,15 @@ export class AuthService {
 
 
   register(name: String, email: String, cpf: String, telephone: String, password: String) {
+  
+      const headers = new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+      });
     return this.http.post(this.env.API_URLregister, 
-      {name: name, email: email, cpf: cpf, telephone: telephone, password: password}
+      {name: name, email: email, cpf: cpf, telephone: telephone, password: password},
+      {headers: headers}
     )
-  }
+    }
 
   logout() {
     const headers = new HttpHeaders({

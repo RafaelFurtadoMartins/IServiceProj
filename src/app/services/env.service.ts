@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EnvService {
-  API_URLlogin = '';
+  API_URLlogin = 'http://localhost:8000/api/login';
   API_URLregister = 'http://localhost:8000/api/user';
   API_URLservice = 'http://localhost:8000/api/servico';
   API_URLlogout = '';

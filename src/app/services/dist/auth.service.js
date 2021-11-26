@@ -37,7 +37,10 @@ var AuthService = /** @class */ (function () {
         }));
     };
     AuthService.prototype.register = function (name, email, cpf, telephone, password) {
-        return this.http.post(this.env.API_URLregister, { name: name, email: email, cpf: cpf, telephone: telephone, password: password });
+        var headers = new http_1.HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+        });
+        return this.http.post(this.env.API_URLregister, { name: name, email: email, cpf: cpf, telephone: telephone, password: password }, { headers: headers });
     };
     AuthService.prototype.logout = function () {
         var _this = this;

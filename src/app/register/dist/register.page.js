@@ -85,8 +85,8 @@ var RegisterPage = /** @class */ (function () {
             }, function (error) {
                 console.log(error);
             }, function () {
-                _this.dismissRegister();
-                _this.navCtrl.navigateRoot('/login');
+                // this.dismissRegister();
+                _this.navCtrl.navigateRoot('feed');
             });
             _this.alertService.presentToast(data['message']);
         }, function (error) {

@@ -42,13 +42,14 @@ export class RegisterPage implements OnInit {
       data => {
         this.authService.login(form.value.email, form.value.password).subscribe(
           data => {
+            
           },
           error => {
             console.log(error);
           },
           () => {
-            this.dismissRegister();
-            this.navCtrl.navigateRoot('/login');
+            // this.dismissRegister();
+            this.navCtrl.navigateRoot('feed');
           }
         );
         this.alertService.presentToast(data['message']);

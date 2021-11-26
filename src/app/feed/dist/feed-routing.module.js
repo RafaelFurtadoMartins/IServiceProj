@@ -6,20 +6,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.EnvService = void 0;
+exports.FeedPageRoutingModule = void 0;
 var core_1 = require("@angular/core");
-var EnvService = /** @class */ (function () {
-    function EnvService() {
-        this.API_URLlogin = 'http://localhost:8000/api/login';
-        this.API_URLregister = 'http://localhost:8000/api/user';
-        this.API_URLservice = 'http://localhost:8000/api/servico';
-        this.API_URLlogout = '';
+var router_1 = require("@angular/router");
+var feed_page_1 = require("./feed.page");
+var routes = [
+    {
+        path: 'feed',
+        component: feed_page_1.FeedPage
     }
-    EnvService = __decorate([
-        core_1.Injectable({
-            providedIn: 'root'
+];
+var FeedPageRoutingModule = /** @class */ (function () {
+    function FeedPageRoutingModule() {
+    }
+    FeedPageRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [router_1.RouterModule.forChild(routes)],
+            exports: [router_1.RouterModule]
         })
-    ], EnvService);
-    return EnvService;
+    ], FeedPageRoutingModule);
+    return FeedPageRoutingModule;
 }());
-exports.EnvService = EnvService;
+exports.FeedPageRoutingModule = FeedPageRoutingModule;
