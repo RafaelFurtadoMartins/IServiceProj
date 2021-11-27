@@ -6,20 +6,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.EnvService = void 0;
+exports.AuthGuard = void 0;
 var core_1 = require("@angular/core");
-var EnvService = /** @class */ (function () {
-    function EnvService() {
-        this.API_URLlogin = 'http://localhost:8000/api/login';
-        this.API_URLregister = 'http://localhost:8000/api/register';
-        this.API_URLservice = 'http://localhost:8000/api/servico';
-        this.API_URLlogout = '';
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(router, authService) {
+        this.router = router;
+        this.authService = authService;
     }
-    EnvService = __decorate([
+    AuthGuard.prototype.canActivate = function (next, state) {
+        var currentUser = this.authService.isLoggedIn;
+        if (currentUser) {
+            // authorised so return true
+            return true;
+        }
+        // not logged in so redirect to login page with the return url
+        this.router.navigate(['/login']);
+        return false;
+    };
+    AuthGuard = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         })
-    ], EnvService);
-    return EnvService;
+    ], AuthGuard);
+    return AuthGuard;
 }());
-exports.EnvService = EnvService;
+exports.AuthGuard = AuthGuard;

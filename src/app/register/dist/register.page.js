@@ -82,10 +82,10 @@ var RegisterPage = /** @class */ (function () {
         var _this = this;
         this.authService.register(form.value.name, form.value.email, form.value.telephone, form.value.cpf, form.value.password).subscribe(function (data) {
             _this.authService.login(form.value.email, form.value.password).subscribe(function (data) {
+                console.log(data);
             }, function (error) {
                 console.log(error);
             }, function () {
-                // this.dismissRegister();
                 _this.navCtrl.navigateRoot('feed');
             });
             _this.alertService.presentToast(data['message']);
@@ -94,7 +94,7 @@ var RegisterPage = /** @class */ (function () {
         }, function () {
         });
     };
-    RegisterPage.prototype.home = function () {
+    RegisterPage.prototype.voltar = function () {
         this.navCtrl.back();
     };
     RegisterPage.prototype.confirmarSenha = function () {

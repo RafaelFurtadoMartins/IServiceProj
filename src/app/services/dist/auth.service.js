@@ -10,7 +10,6 @@ exports.AuthService = void 0;
 var http_1 = require("@angular/common/http");
 var core_1 = require("@angular/core");
 var operators_1 = require("rxjs/operators");
-var models_servicos_component_1 = require("../models/models.servicos.component");
 var AuthService = /** @class */ (function () {
     function AuthService(http, storage, env) {
         this.http = http;
@@ -18,16 +17,23 @@ var AuthService = /** @class */ (function () {
         this.env = env;
         this.isLoggedIn = false;
     }
-    AuthService.prototype.registerServico = function (categoria, subCategoria, servico, cidade) {
+    AuthService.prototype.registerServico = function (user_id, categoria, subCategoria, servico, cidade) {
         return this.http.post(this.env.API_URLservice, {
-            categoria: categoria, subCategoria: subCategoria,
-            servico: models_servicos_component_1.service, cidade: cidade
+            user_id: user_id,
+            categoria: categoria,
+            subCategoria: subCategoria,
+            servico: servico,
+            cidade: cidade
         });
     };
     AuthService.prototype.login = function (email, password) {
         var _this = this;
-        return this.http.post(this.env.API_URLlogin, { email: email, password: password }).pipe(operators_1.tap(function (token) {
+        var headers = new http_1.HttpHeaders({
+            'Access-Control-Allow-Origin': '*'
+        });
+        return this.http.post(this.env.API_URLlogin, { email: email, password: password }, { headers: headers }).pipe(operators_1.tap(function (token) {
             _this.storage.setItem('token', token)
+                // , this.storage.setItem 
                 .then(function () {
                 console.log('Token Stored');
             }, function (error) { return console.error('Error storing item', error); });

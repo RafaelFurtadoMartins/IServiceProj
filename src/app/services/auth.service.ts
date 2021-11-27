@@ -3,7 +3,6 @@ import { TemplateDefinitionBuilder } from '@angular/compiler/src/render3/view/te
 import { Injectable } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { tap } from 'rxjs/operators';
-import { prestadores } from '../models/models.prestadores.component';
 import { EnvService } from './env.service';
 import { service } from '../models/models.servicos.component';
 
@@ -22,21 +21,32 @@ export class AuthService {
     
   ) { }
 
-   registerServico(categoria: String, subCategoria: String,
+   registerServico(user_id: BigInteger, categoria: String, subCategoria: String,
     servico: String, cidade: String) 
     {
     return this.http.post(this.env.API_URLservice,{
-      categoria: categoria, subCategoria: subCategoria,
-      servico: service, cidade: cidade }
+      user_id: user_id,
+      categoria: categoria, 
+      subCategoria: subCategoria,
+      servico: servico,
+      cidade: cidade }
     )
   }
 
   login(email: String, password: String) {
+
+    const headers = new HttpHeaders({
+      'Access-Control-Allow-Origin': '*'
+    });
+
     return this.http.post(this.env.API_URLlogin,
-      {email: email, password: password}
+      {email: email, password: password},
+
+      {headers: headers}
     ).pipe(
       tap(token => {
         this.storage.setItem('token', token)
+        // , this.storage.setItem 
         .then(
           () => {
             console.log('Token Stored');
@@ -46,6 +56,7 @@ export class AuthService {
         this.token = token;
         this.isLoggedIn = true;
         return token;
+        
       }),
     );
   }
@@ -56,6 +67,7 @@ export class AuthService {
       const headers = new HttpHeaders({
         'Access-Control-Allow-Origin': '*'
       });
+
     return this.http.post(this.env.API_URLregister, 
       {name: name, email: email, cpf: cpf, telephone: telephone, password: password},
       {headers: headers}

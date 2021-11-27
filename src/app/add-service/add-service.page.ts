@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { service } from '../models/models.servicos.component';
-import { AuthService } from 'src/app/services/auth.service';
+import { AddService } from 'src/app/services/add.service';
 
 @Component({
   selector: 'app-add-service',
@@ -9,19 +8,22 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./add-service.page.scss'],
 })
 export class AddServicePage implements OnInit {
- 
-  constructor (
-  ){ }
+
+  constructor(
+    private addService: AddService,
+
+  ) { }
 
   ngOnInit() {
   }
-cadastrar(form: NgForm){
-  
+cadastroServico(form: NgForm){
+this.addService.registerServico(
+  form.value.titulo, 
+  form.value.descricao, 
+  form.value.cidade
+).subscribe
+
 }
 
-
 }
 
-// register(form: NgForm) {
-//   this.authService.register(form.value.name, form.value.email, form.value.telephone, form.value.cpf, 
-//     form.value.password).subscribe(

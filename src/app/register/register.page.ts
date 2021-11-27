@@ -42,13 +42,12 @@ export class RegisterPage implements OnInit {
       data => {
         this.authService.login(form.value.email, form.value.password).subscribe(
           data => {
-            
+            console.log(data);
           },
           error => {
             console.log(error);
           },
           () => {
-            // this.dismissRegister();
             this.navCtrl.navigateRoot('feed');
           }
         );
@@ -62,7 +61,7 @@ export class RegisterPage implements OnInit {
       }
     );
   }
-  home(){
+  voltar(){
     this.navCtrl.back();
     }
     confirmarSenha(){

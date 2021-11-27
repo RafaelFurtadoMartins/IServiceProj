@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
 
@@ -21,9 +22,18 @@ const routes: Routes = [
     loadChildren: () => import('./feed/feed.module').then( m => m.FeedPageModule)
   },
   {
-    path: 'add-service',
-    loadChildren: () => import('./add-service/add-service.module').then( m => m.AddServicePageModule)
+    path: 'card',
+    loadChildren: () => import('./card/card.module').then( m => m.CardPageModule)
   },
+  {
+    path: 'add-service',
+    loadChildren: () => import('./add-service/add-service.module').then( m => m.AddServicePageModule),
+    canActivate: [AuthGuard]
+  },
+
+
+
+
 
 
 ];
