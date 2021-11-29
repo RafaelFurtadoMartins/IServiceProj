@@ -18,6 +18,8 @@ export class AddServicePage implements OnInit {
   }
 cadastroServico(form: NgForm){
 this.addService.registerServico(
+  form.value.categoria,
+  form.value.subCategoria,
   form.value.titulo, 
   form.value.descricao, 
   form.value.cidade

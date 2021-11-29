@@ -15,7 +15,7 @@ var AddServicePage = /** @class */ (function () {
     AddServicePage.prototype.ngOnInit = function () {
     };
     AddServicePage.prototype.cadastroServico = function (form) {
-        this.addService.registerServico(form.value.titulo, form.value.descricao, form.value.cidade).subscribe;
+        this.addService.registerServico(form.value.categoria, form.value.subCategoria, form.value.titulo, form.value.descricao, form.value.cidade).subscribe;
     };
     AddServicePage = __decorate([
         core_1.Component({

@@ -35,14 +35,13 @@ export class AuthService {
 
   login(email: String, password: String) {
 
-    const headers = new HttpHeaders({
-      'Access-Control-Allow-Origin': '*'
-    });
+    // const headers = new HttpHeaders({
+    //   'Access-Control-Allow-Origin': '*'
+    // });
 
     return this.http.post(this.env.API_URLlogin,
       {email: email, password: password},
 
-      {headers: headers}
     ).pipe(
       tap(token => {
         this.storage.setItem('token', token)

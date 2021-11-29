@@ -43,12 +43,13 @@ export class RegisterPage implements OnInit {
         this.authService.login(form.value.email, form.value.password).subscribe(
           data => {
             console.log(data);
+            this.navCtrl.navigateRoot('feed');
           },
           error => {
             console.log(error);
           },
           () => {
-            this.navCtrl.navigateRoot('feed');
+           
           }
         );
         this.alertService.presentToast(data['message']);

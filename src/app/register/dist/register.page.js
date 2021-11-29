@@ -83,10 +83,10 @@ var RegisterPage = /** @class */ (function () {
         this.authService.register(form.value.name, form.value.email, form.value.telephone, form.value.cpf, form.value.password).subscribe(function (data) {
             _this.authService.login(form.value.email, form.value.password).subscribe(function (data) {
                 console.log(data);
+                _this.navCtrl.navigateRoot('feed');
             }, function (error) {
                 console.log(error);
             }, function () {
-                _this.navCtrl.navigateRoot('feed');
             });
             _this.alertService.presentToast(data['message']);
         }, function (error) {

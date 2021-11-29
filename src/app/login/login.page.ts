@@ -40,6 +40,7 @@ export class LoginPage implements OnInit {
   login(form: NgForm) {
     this.authService.login(form.value.email, form.value.password).subscribe(
       data => {
+        console.log(data);
         this.alertService.presentToast("Logged In");
       },
       error => {
@@ -47,7 +48,7 @@ export class LoginPage implements OnInit {
       },
       () => {
         this.dismissLogin();
-        this.navCtrl.navigateRoot('home-page');
+        this.navCtrl.navigateRoot('feed');
       }
     );
   }

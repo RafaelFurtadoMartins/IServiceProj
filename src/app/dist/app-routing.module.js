@@ -9,7 +9,6 @@ exports.__esModule = true;
 exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var auth_guard_1 = require("./guard/auth.guard");
 var routes = [
     {
         path: '',
@@ -34,8 +33,8 @@ var routes = [
     },
     {
         path: 'add-service',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./add-service/add-service.module'); }).then(function (m) { return m.AddServicePageModule; }); },
-        canActivate: [auth_guard_1.AuthGuard]
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./add-service/add-service.module'); }).then(function (m) { return m.AddServicePageModule; }); }
+        // canActivate: [AuthGuard]
     },
 ];
 var AppRoutingModule = /** @class */ (function () {

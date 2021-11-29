@@ -27,8 +27,8 @@ const routes: Routes = [
   },
   {
     path: 'add-service',
-    loadChildren: () => import('./add-service/add-service.module').then( m => m.AddServicePageModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./add-service/add-service.module').then( m => m.AddServicePageModule)
+    // canActivate: [AuthGuard]
   },
 
 

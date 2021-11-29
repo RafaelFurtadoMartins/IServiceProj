@@ -12,9 +12,9 @@ var models_servicos_component_1 = require("../models/models.servicos.component")
 var AddService = /** @class */ (function () {
     function AddService(http) {
         this.http = http;
-        this.API_URL = 'http://localhost:8000/api/servico';
+        this.API_URL = 'http://localhost:8000/api/service';
     }
-    AddService.prototype.registerServico = function (titulo, descricao, cidade) {
+    AddService.prototype.registerServico = function (categoria, subCategoria, titulo, descricao, cidade) {
         return this.http.post(this.API_URL, models_servicos_component_1.service);
     };
     AddService = __decorate([

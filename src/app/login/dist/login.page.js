@@ -80,12 +80,13 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.login = function (form) {
         var _this = this;
         this.authService.login(form.value.email, form.value.password).subscribe(function (data) {
+            console.log(data);
             _this.alertService.presentToast("Logged In");
         }, function (error) {
             console.log(error);
         }, function () {
             _this.dismissLogin();
-            _this.navCtrl.navigateRoot('home-page');
+            _this.navCtrl.navigateRoot('feed');
         });
     };
     LoginPage.prototype.register = function () {

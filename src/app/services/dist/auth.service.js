@@ -27,11 +27,11 @@ var AuthService = /** @class */ (function () {
         });
     };
     AuthService.prototype.login = function (email, password) {
+        // const headers = new HttpHeaders({
+        //   'Access-Control-Allow-Origin': '*'
+        // });
         var _this = this;
-        var headers = new http_1.HttpHeaders({
-            'Access-Control-Allow-Origin': '*'
-        });
-        return this.http.post(this.env.API_URLlogin, { email: email, password: password }, { headers: headers }).pipe(operators_1.tap(function (token) {
+        return this.http.post(this.env.API_URLlogin, { email: email, password: password }).pipe(operators_1.tap(function (token) {
             _this.storage.setItem('token', token)
                 // , this.storage.setItem 
                 .then(function () {
