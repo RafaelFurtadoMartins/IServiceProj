@@ -9,13 +9,20 @@ exports.__esModule = true;
 exports.AddServicePage = void 0;
 var core_1 = require("@angular/core");
 var AddServicePage = /** @class */ (function () {
-    function AddServicePage(addService) {
+    function AddServicePage(alertService, addService) {
+        this.alertService = alertService;
         this.addService = addService;
     }
     AddServicePage.prototype.ngOnInit = function () {
     };
     AddServicePage.prototype.cadastroServico = function (form) {
-        this.addService.registerServico(form.value.categoria, form.value.subCategoria, form.value.titulo, form.value.descricao, form.value.cidade).subscribe;
+        var _this = this;
+        this.addService.registerServico(form.value.categoria, form.value.subCategoria, form.value.titulo, form.value.descricao, form.value.cidade).subscribe(function (data) {
+            console.log(data);
+            _this.alertService.presentToast("Serviço salvo com sucesso");
+        }, function (error) {
+            console.log(error);
+        });
     };
     AddServicePage = __decorate([
         core_1.Component({

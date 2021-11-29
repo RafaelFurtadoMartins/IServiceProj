@@ -1,6 +1,8 @@
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AddService } from 'src/app/services/add.service';
+import { AlertService } from '../services/alert.service';
 
 @Component({
   selector: 'app-add-service',
@@ -12,6 +14,8 @@ export class AddServicePage implements OnInit {
   select: string;
 
   constructor(
+    private alertService: AlertService,
+
     private addService: AddService,
 
   ) { }
@@ -25,7 +29,17 @@ this.addService.registerServico(
   form.value.titulo, 
   form.value.descricao, 
   form.value.cidade
-).subscribe
+).subscribe(
+  data => {
+    console.log(data);
+    this.alertService.presentToast("Serviço salvo com sucesso");
+
+  },
+  error => {
+    console.log(error);
+  },
+)
+
 
 }
 

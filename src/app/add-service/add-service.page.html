@@ -10,7 +10,7 @@
 
             <ion-label>Categoria
             </ion-label>
-            <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" [(ngModel)]="select" placeholder="">
+            <ion-select interface="action-sheet" [(ngModel)]="select" placeholder="">
                 <ion-select-option value="servico">Serviços Gerais</ion-select-option>
                 <ion-select-option value="taxi">Taxi</ion-select-option>
                 <ion-select-option value="teste">teste</ion-select-option>
@@ -23,7 +23,7 @@
             <ion-item>
                 <ion-label> Sub-Categoria
                 </ion-label>
-                <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="">
+                <ion-select interface="action-sheet" [(ngModel)]="select" placeholder="">
                     <ion-select-option value="servicos">Serviços Gerais</ion-select-option>
                     <ion-select-option value="Encanador">Encanador</ion-select-option>
                     <ion-select-option value="eletricista">Eletricista</ion-select-option>
@@ -50,12 +50,6 @@
                 <ion-input ngModel name="cidade"></ion-input>
             </ion-item>
         </p>
-
-
-        <ion-list>
-            <ion-list>
-            </ion-list>
-        </ion-list>
         <ion-button (click)="cadastroServico()"> Adicionar</ion-button>
 
     </div>
