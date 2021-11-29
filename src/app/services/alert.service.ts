@@ -8,9 +8,8 @@ export class AlertService {
   async presentToast(message: any) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
-      position: 'top',
-      color: 'dark'
+      duration: 3000,
+      position: 'middle',
     });
     toast.present();
   }

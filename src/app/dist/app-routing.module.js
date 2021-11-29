@@ -9,6 +9,7 @@ exports.__esModule = true;
 exports.AppRoutingModule = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var auth_guard_1 = require("./guard/auth.guard");
 var routes = [
     {
         path: '',
@@ -24,17 +25,17 @@ var routes = [
         loadChildren: function () { return Promise.resolve().then(function () { return require('./register/register.module'); }).then(function (m) { return m.RegisterPageModule; }); }
     },
     {
-        path: 'feed',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./feed/feed.module'); }).then(function (m) { return m.FeedPageModule; }); }
-    },
-    {
         path: 'card',
         loadChildren: function () { return Promise.resolve().then(function () { return require('./card/card.module'); }).then(function (m) { return m.CardPageModule; }); }
     },
     {
         path: 'add-service',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./add-service/add-service.module'); }).then(function (m) { return m.AddServicePageModule; }); }
-        // canActivate: [AuthGuard]
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./add-service/add-service.module'); }).then(function (m) { return m.AddServicePageModule; }); },
+        canActivate: [auth_guard_1.AuthGuard]
+    },
+    {
+        path: 'feed',
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./feed/feed.module'); }).then(function (m) { return m.FeedPageModule; }); }
     },
 ];
 var AppRoutingModule = /** @class */ (function () {

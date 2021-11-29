@@ -8,6 +8,8 @@ import { AddService } from 'src/app/services/add.service';
   styleUrls: ['./add-service.page.scss'],
 })
 export class AddServicePage implements OnInit {
+ 
+  select: string;
 
   constructor(
     private addService: AddService,

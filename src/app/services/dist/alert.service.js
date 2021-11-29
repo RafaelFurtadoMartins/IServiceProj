@@ -42,63 +42,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.LoginPage = void 0;
+exports.AlertService = void 0;
 var core_1 = require("@angular/core");
-var register_page_1 = require("../register/register.page");
-var LoginPage = /** @class */ (function () {
-    function LoginPage(modalController, authService, navCtrl, alertService) {
-        this.modalController = modalController;
-        this.authService = authService;
-        this.navCtrl = navCtrl;
-        this.alertService = alertService;
+var AlertService = /** @class */ (function () {
+    function AlertService(toastController) {
+        this.toastController = toastController;
     }
-    LoginPage.prototype.ngOnInit = function () {
-    };
-    // Dismiss Login Modal
-    LoginPage.prototype.dismissLogin = function () {
-        this.modalController.dismiss();
-    };
-    // On Register button tap, dismiss login modal and open register modal
-    LoginPage.prototype.registerModal = function () {
+    AlertService.prototype.presentToast = function (message) {
         return __awaiter(this, void 0, void 0, function () {
-            var registerModal;
+            var toast;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        this.dismissLogin();
-                        return [4 /*yield*/, this.modalController.create({
-                                component: register_page_1.RegisterPage
-                            })];
+                    case 0: return [4 /*yield*/, this.toastController.create({
+                            message: message,
+                            duration: 3000,
+                            position: 'middle'
+                        })];
                     case 1:
-                        registerModal = _a.sent();
-                        return [4 /*yield*/, registerModal.present()];
-                    case 2: return [2 /*return*/, _a.sent()];
+                        toast = _a.sent();
+                        toast.present();
+                        return [2 /*return*/];
                 }
             });
         });
     };
-    LoginPage.prototype.login = function (form) {
-        var _this = this;
-        this.authService.login(form.value.email, form.value.password).subscribe(function (data) {
-            console.log(data);
-            _this.alertService.presentToast("Login efetuado com sucesso");
-        }, function (error) {
-            console.log(error);
-        }, function () {
-            _this.dismissLogin();
-            _this.navCtrl.navigateRoot('feed');
-        });
-    };
-    LoginPage.prototype.register = function () {
-        this.navCtrl.navigateForward("register");
-    };
-    LoginPage = __decorate([
-        core_1.Component({
-            selector: 'app-login',
-            templateUrl: './login.page.html',
-            styleUrls: ['./login.page.scss']
+    AlertService = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], LoginPage);
-    return LoginPage;
+    ], AlertService);
+    return AlertService;
 }());
-exports.LoginPage = LoginPage;
+exports.AlertService = AlertService;

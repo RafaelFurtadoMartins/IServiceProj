@@ -17,19 +17,21 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
-  {
-    path: 'feed',
-    loadChildren: () => import('./feed/feed.module').then( m => m.FeedPageModule)
-  },
+
   {
     path: 'card',
     loadChildren: () => import('./card/card.module').then( m => m.CardPageModule)
   },
   {
     path: 'add-service',
-    loadChildren: () => import('./add-service/add-service.module').then( m => m.AddServicePageModule)
-    // canActivate: [AuthGuard]
+    loadChildren: () => import('./add-service/add-service.module').then( m => m.AddServicePageModule),
+    canActivate: [AuthGuard]
   },
+  {
+    path: 'feed',
+    loadChildren: () => import('./feed/feed.module').then( m => m.FeedPageModule)
+  },
+
 
 
 

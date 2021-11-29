@@ -1,7 +1,6 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>Adicionar Serviços</ion-title>
-        <ion-icon name="download-outline"></ion-icon>
     </ion-toolbar>
 </ion-header>
 
@@ -11,7 +10,7 @@
 
             <ion-label>Categoria
             </ion-label>
-            <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="">
+            <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" [(ngModel)]="select" placeholder="">
                 <ion-select-option value="servico">Serviços Gerais</ion-select-option>
                 <ion-select-option value="taxi">Taxi</ion-select-option>
                 <ion-select-option value="teste">teste</ion-select-option>

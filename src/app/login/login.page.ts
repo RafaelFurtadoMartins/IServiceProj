@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
     this.authService.login(form.value.email, form.value.password).subscribe(
       data => {
         console.log(data);
-        this.alertService.presentToast("Logged In");
+        this.alertService.presentToast("Login efetuado com sucesso");
       },
       error => {
         console.log(error);
