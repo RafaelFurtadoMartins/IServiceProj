@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'feed',
     loadChildren: () => import('./feed/feed.module').then( m => m.FeedPageModule)
+  },  {
+    path: 'edit-service',
+    loadChildren: () => import('./edit-service/edit-service.module').then( m => m.EditServicePageModule)
   },
+
 
 
 
