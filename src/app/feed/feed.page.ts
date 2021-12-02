@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { servico, ServicoService } from '../services/servico.service';
+import { service } from '../models/models.servicos.component';
 
 @Component({
   selector: 'app-feed',
@@ -7,10 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./feed.page.scss'],
 })
 export class FeedPage implements OnInit {
+servicos: servico[];
+  constructor(
+    private route: Router,
+    private service: ServicoService
+       ) { }
 
-  constructor(private route: Router) { }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.getAll().subscribe(response => {
+      this.servicos = response;
+    })
+  }
 
   navigateService() {
     this.route.navigate(['/add-service']);

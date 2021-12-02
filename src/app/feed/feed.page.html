@@ -7,29 +7,20 @@
 </ion-header>
 
 <ion-content>
-
     <ion-searchbar showCancelButton="always"></ion-searchbar>
 
     <ion-card>
         <div class="card-feed">
             <ion-card-header>
-                <ion-card-title>Card Title</ion-card-title>
+                <ion-card-title *ngFor="let c of servicos">{{c.titulo}}</ion-card-title>
+                <ion-card *ngFor="let c of servicos">{{c.descricao}}</ion-card>
+                <ion-card *ngFor="let c of servicos">{{c.categoria}}</ion-card>
+                <ion-card *ngFor="let c of servicos">{{c.subcategoria}}</ion-card>
+                <ion-card *ngFor="let c of servicos">{{c.Cidade_estado}}</ion-card>
+                <ion-card *ngFor="let c of servicos">{{c.nome}}</ion-card>
+                <ion-card *ngFor="let c of servicos">{{c.telefone}}</ion-card>
             </ion-card-header>
-
-            <ion-card-content>
-                Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
         </div>
     </ion-card>
-    <ion-card>
-        <div class="card-feed">
-            <ion-card-header>
-                <ion-card-title>Card Title</ion-card-title>
-            </ion-card-header>
 
-            <ion-card-content>
-                Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
-        </div>
-    </ion-card>
 </ion-content>

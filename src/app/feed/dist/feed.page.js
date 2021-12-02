@@ -9,10 +9,16 @@ exports.__esModule = true;
 exports.FeedPage = void 0;
 var core_1 = require("@angular/core");
 var FeedPage = /** @class */ (function () {
-    function FeedPage(route) {
+    function FeedPage(route, service) {
         this.route = route;
+        this.service = service;
     }
-    FeedPage.prototype.ngOnInit = function () { };
+    FeedPage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service.getAll().subscribe(function (response) {
+            _this.servicos = response;
+        });
+    };
     FeedPage.prototype.navigateService = function () {
         this.route.navigate(['/add-service']);
     };
