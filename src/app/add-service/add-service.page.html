@@ -5,52 +5,48 @@
 </ion-header>
 
 <ion-content>
-    <div class="service">
-        <ion-item>
-
-            <ion-label>Categoria
-            </ion-label>
-            <ion-select interface="action-sheet" [(ngModel)]="select" placeholder="">
-                <ion-select-option value="servico">Serviços Gerais</ion-select-option>
-                <ion-select-option value="taxi">Taxi</ion-select-option>
-                <ion-select-option value="teste">teste</ion-select-option>
-
-            </ion-select>
-
-        </ion-item>
-
-        <p>
+    <form [formGroup]="formulario" method="post">
+        <div class="service">
             <ion-item>
-                <ion-label> Sub-Categoria
+
+                <ion-label>Categoria
                 </ion-label>
-                <ion-select interface="action-sheet" [(ngModel)]="select" placeholder="">
-                    <ion-select-option value="servicos">Serviços Gerais</ion-select-option>
-                    <ion-select-option value="Encanador">Encanador</ion-select-option>
-                    <ion-select-option value="eletricista">Eletricista</ion-select-option>
-                    <ion-select-option value="servente">Servente</ion-select-option>
+                <ion-select interface="action-sheet" formControlName="categoria" placeholder="">
+                    <ion-select-option value="servico">Serviços Gerais</ion-select-option>
+                    <ion-select-option value="taxi">Taxi</ion-select-option>
+                    <ion-select-option value="teste">teste</ion-select-option>
 
                 </ion-select>
-            </ion-item>
-        </p>
-        <p>
-            <ion-item>
-                <ion-label position="floating">Título</ion-label>
-                <ion-input ngModel name="titulo"></ion-input>
-            </ion-item>
-        </p>
-        <p>
-            <ion-item>
-                <ion-label position="floating">Descrição</ion-label>
-                <ion-input ngModel name="descricao"></ion-input>
-            </ion-item>
-        </p>
-        <p>
-            <ion-item>
-                <ion-label position="floating">Cidade</ion-label>
-                <ion-input ngModel name="cidade"></ion-input>
-            </ion-item>
-        </p>
-        <ion-button (click)="cadastroServico()"> Adicionar</ion-button>
 
-    </div>
+            </ion-item>
+
+            <p>
+                <ion-item>
+                    <ion-label position="floating">SubCategoria</ion-label>
+                    <ion-input formControlName="subCategoria" name="subCategoria"></ion-input>
+                </ion-item>
+            </p>
+            <p>
+                <ion-item>
+                    <ion-label position="floating">Título</ion-label>
+                    <ion-input formControlName="titulo" name=" titulo "></ion-input>
+                </ion-item>
+            </p>
+            <p>
+                <ion-item>
+                    <ion-label position="floating ">Descrição</ion-label>
+                    <ion-input formControlName="descricao" name=" descricao "></ion-input>
+                </ion-item>
+            </p>
+            <p>
+                <ion-item>
+                    <ion-label position="floating ">Cidade</ion-label>
+                    <ion-input formControlName="cidade" name=" cidade "></ion-input>
+                </ion-item>
+            </p>
+            <ion-button (click)="cadastroServico() "> Adicionar</ion-button>
+
+        </div>
+    </form>
+
 </ion-content>

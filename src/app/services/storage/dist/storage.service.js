@@ -42,65 +42,62 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.LoginPage = void 0;
+exports.StorageService = void 0;
 var core_1 = require("@angular/core");
-var register_page_1 = require("../register/register.page");
-var LoginPage = /** @class */ (function () {
-    function LoginPage(Storage, modalController, authService, navCtrl, alertService) {
-        this.Storage = Storage;
-        this.modalController = modalController;
-        this.authService = authService;
-        this.navCtrl = navCtrl;
-        this.alertService = alertService;
+var storage_1 = require("@capacitor/storage");
+var StorageService = /** @class */ (function () {
+    function StorageService() {
     }
-    LoginPage.prototype.ngOnInit = function () {
-    };
-    // Dismiss Login Modal
-    LoginPage.prototype.dismissLogin = function () {
-        this.modalController.dismiss();
-    };
-    // On Register button tap, dismiss login modal and open register modal
-    LoginPage.prototype.registerModal = function () {
+    StorageService.prototype.setToken = function (key, value) {
         return __awaiter(this, void 0, void 0, function () {
-            var registerModal;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        this.dismissLogin();
-                        return [4 /*yield*/, this.modalController.create({
-                                component: register_page_1.RegisterPage
-                            })];
+                    case 0: return [4 /*yield*/, storage_1.Storage.set({
+                            key: key,
+                            value: JSON.stringify(value)
+                        })];
                     case 1:
-                        registerModal = _a.sent();
-                        return [4 /*yield*/, registerModal.present()];
-                    case 2: return [2 /*return*/, _a.sent()];
+                        _a.sent();
+                        return [2 /*return*/];
                 }
             });
         });
     };
-    LoginPage.prototype.login = function (form) {
-        var _this = this;
-        this.authService.login(form.value.email, form.value.password).subscribe(function (data) {
-            console.log(data);
-            _this.Storage.setToken('token', data);
-            _this.alertService.presentToast("Login efetuado com sucesso");
-        }, function (error) {
-            console.log(error);
-        }, function () {
-            _this.dismissLogin();
-            _this.navCtrl.navigateRoot('feed');
+    ;
+    StorageService.prototype.getToken = function (key) {
+        return __awaiter(this, void 0, Promise, function () {
+            var token;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, storage_1.Storage.get({
+                            key: key
+                        })];
+                    case 1:
+                        token = _a.sent();
+                        return [2 /*return*/, JSON.parse(token.value)];
+                }
+            });
         });
     };
-    LoginPage.prototype.register = function () {
-        this.navCtrl.navigateForward("register");
+    ;
+    StorageService.prototype.removeName = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, storage_1.Storage.remove({ key: 'name' })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
-    LoginPage = __decorate([
-        core_1.Component({
-            selector: 'app-login',
-            templateUrl: './login.page.html',
-            styleUrls: ['./login.page.scss']
+    ;
+    StorageService = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], LoginPage);
-    return LoginPage;
+    ], StorageService);
+    return StorageService;
 }());
-exports.LoginPage = LoginPage;
+exports.StorageService = StorageService;

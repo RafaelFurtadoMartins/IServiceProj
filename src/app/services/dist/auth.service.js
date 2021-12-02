@@ -87,6 +87,19 @@ var AuthService = /** @class */ (function () {
             _this.isLoggedIn = false;
         });
     };
+    AuthService.prototype.getUserLoggedIn = function () {
+        return localStorage.getItem("_token");
+    };
+    AuthService.prototype.userToken = function () {
+        var token = JSON.parse(this.getUserLoggedIn());
+        var headers = new http_1.HttpHeaders({
+            'Authorization': token["token_type"] + " " + token['access_token']
+        });
+        return headers;
+    };
+    AuthService.prototype.setTokenLoggedIn = function (token) {
+        localStorage.setItem('_token', "" + JSON.stringify(token));
+    };
     AuthService = __decorate([
         core_1.Injectable({
             providedIn: 'root'

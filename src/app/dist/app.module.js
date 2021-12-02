@@ -19,6 +19,7 @@ var http_1 = require("@angular/common/http");
 var ngx_1 = require("@ionic-native/splash-screen/ngx");
 var ngx_2 = require("@ionic-native/status-bar/ngx");
 var ngx_3 = require("@ionic-native/native-storage/ngx");
+var forms_1 = require("@angular/forms");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -32,6 +33,8 @@ var AppModule = /** @class */ (function () {
                 login_module_1.LoginPageModule,
                 register_module_1.RegisterPageModule,
                 http_1.HttpClientModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule
             ],
             providers: [
                 ngx_1.SplashScreen,

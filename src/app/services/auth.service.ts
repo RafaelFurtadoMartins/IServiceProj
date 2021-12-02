@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TemplateDefinitionBuilder } from '@angular/compiler/src/render3/view/template';
 import { Injectable } from '@angular/core';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { tap } from 'rxjs/operators';
 import { EnvService } from './env.service';
 import { service } from '../models/models.servicos.component';
+import { Observable } from 'rxjs';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -119,6 +120,19 @@ export class AuthService {
         this.isLoggedIn=false;
       }
     );
+  }
+  getUserLoggedIn() {
+    return localStorage.getItem("_token");
+  }
+  userToken() {
+    let token = JSON.parse(this.getUserLoggedIn());
+    const headers = new HttpHeaders({
+      'Authorization': token["token_type"] + " " + token['access_token']
+    });
+    return headers;
+  }
+  setTokenLoggedIn(token: any) {
+    localStorage.setItem('_token', `${JSON.stringify(token)}`)
   }
   // public cadastrar(service: service) {
   //   return this.http.post(this.API_URL, service);

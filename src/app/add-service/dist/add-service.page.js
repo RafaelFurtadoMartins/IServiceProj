@@ -9,19 +9,32 @@ exports.__esModule = true;
 exports.AddServicePage = void 0;
 var core_1 = require("@angular/core");
 var AddServicePage = /** @class */ (function () {
-    function AddServicePage(alertService, addService) {
+    // usuario: any = JSON.parse(this.authService.getToken())
+    function AddServicePage(fb, Storage, alertService, authService, addService) {
+        this.fb = fb;
+        this.Storage = Storage;
         this.alertService = alertService;
+        this.authService = authService;
         this.addService = addService;
     }
     AddServicePage.prototype.ngOnInit = function () {
+        this.formulario = this.fb.group({
+            titulo: '',
+            descricao: '',
+            categoria: '',
+            subCategoria: '',
+            cidade: ''
+        });
     };
-    AddServicePage.prototype.cadastroServico = function (form) {
+    AddServicePage.prototype.cadastroServico = function () {
         var _this = this;
-        this.addService.registerServico(form.value.categoria, form.value.subCategoria, form.value.titulo, form.value.descricao, form.value.cidade).subscribe(function (data) {
-            console.log(data);
-            _this.alertService.presentToast("Serviço salvo com sucesso");
-        }, function (error) {
-            console.log(error);
+        this.Storage.getToken('token').then(function (token) {
+            _this.addService.registerServico(_this.formulario.value, token).subscribe(function (data) {
+                console.log(data);
+                _this.alertService.presentToast("Serviço salvo com sucesso");
+            }, function (error) {
+                console.log(error);
+            });
         });
     };
     AddServicePage = __decorate([

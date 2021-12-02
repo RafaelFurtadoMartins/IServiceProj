@@ -5,6 +5,8 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { NavigationEnd } from '@angular/router';
+import { Storage } from '@capacitor/storage';
+import { StorageService } from '../services/storage/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +16,7 @@ import { NavigationEnd } from '@angular/router';
 export class LoginPage implements OnInit {
   
   constructor(
+    private Storage : StorageService,
     private modalController: ModalController,
     private authService: AuthService,
     private navCtrl: NavController,
@@ -41,6 +44,7 @@ export class LoginPage implements OnInit {
     this.authService.login(form.value.email, form.value.password).subscribe(
       data => {
         console.log(data);
+        this.Storage.setToken('token', data);
         this.alertService.presentToast("Login efetuado com sucesso");
       },
       error => {

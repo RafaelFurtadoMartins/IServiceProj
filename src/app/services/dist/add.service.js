@@ -7,15 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AddService = void 0;
+var http_1 = require("@angular/common/http");
 var core_1 = require("@angular/core");
-var models_servicos_component_1 = require("../models/models.servicos.component");
 var AddService = /** @class */ (function () {
-    function AddService(http) {
+    function AddService(http, auth) {
         this.http = http;
+        this.auth = auth;
         this.API_URL = 'http://localhost:8000/api/service';
     }
-    AddService.prototype.registerServico = function (categoria, subCategoria, titulo, descricao, cidade) {
-        return this.http.post(this.API_URL, models_servicos_component_1.service);
+    AddService.prototype.registerServico = function (servico, token) {
+        var headers = new http_1.HttpHeaders({
+            'Authorization': token["token_type"] + " " + token["token"]
+        });
+        return this.http.post(this.API_URL, servico, { headers: headers });
     };
     AddService = __decorate([
         core_1.Injectable({

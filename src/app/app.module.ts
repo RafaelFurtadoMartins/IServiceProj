@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     LoginPageModule,
     RegisterPageModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
 
