@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.ServicoService = void 0;
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/common/http");
 var ServicoService = /** @class */ (function () {
     function ServicoService(http) {
         this.http = http;
@@ -15,6 +16,14 @@ var ServicoService = /** @class */ (function () {
     }
     ServicoService.prototype.getAll = function () {
         return this.http.get(this.url);
+    };
+    ServicoService.prototype.show = function (id, token) {
+        var headers = new http_1.HttpHeaders({
+            'Authorization': token["token_type"] + " " + token["token"]
+        });
+        return this.http.get(this.url + "/show/" + id, { headers: headers });
+    };
+    ServicoService.prototype["delete"] = function () {
     };
     ServicoService = __decorate([
         core_1.Injectable({

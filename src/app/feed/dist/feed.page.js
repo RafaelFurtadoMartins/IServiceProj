@@ -13,7 +13,10 @@ var FeedPage = /** @class */ (function () {
         this.route = route;
         this.service = service;
     }
-    FeedPage.prototype.ngOnInit = function () {
+    FeedPage.prototype.ionViewWillEnter = function () {
+        this.BuscarTodos();
+    };
+    FeedPage.prototype.BuscarTodos = function () {
         var _this = this;
         this.service.getAll().subscribe(function (response) {
             _this.servicos = response;

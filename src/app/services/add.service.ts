@@ -16,7 +16,7 @@ export class AddService {
 
    }
 
-  public registerServico( servico: any, token: any  )
+  public registerServico( servico: any, token: any  ):Observable<any>
    {
      
     const headers = new HttpHeaders({

@@ -10,21 +10,26 @@ exports.EditServicePage = void 0;
 var core_1 = require("@angular/core");
 var EditServicePage = /** @class */ (function () {
     // usuario: any = JSON.parse(this.authService.getToken())
-    function EditServicePage(fb, Storage, alertService, authService, addService) {
+    function EditServicePage(fb, Storage, alertService, authService, addService, service, route, servico) {
         this.fb = fb;
         this.Storage = Storage;
         this.alertService = alertService;
         this.authService = authService;
         this.addService = addService;
+        this.service = service;
+        this.route = route;
+        this.servico = servico;
     }
+    // ngOnInit() {
+    //   this.formulario=this.fb.group({
+    //     titulo:'',
+    //     descricao:'',  
+    //     categoria:'',
+    //     subCategoria:'',
+    //    cidade:'',
+    //   })
     EditServicePage.prototype.ngOnInit = function () {
-        this.formulario = this.fb.group({
-            titulo: '',
-            descricao: '',
-            categoria: '',
-            subCategoria: '',
-            cidade: ''
-        });
+        this.BuscarServicos();
     };
     EditServicePage.prototype.editService = function () {
         var _this = this;
@@ -34,6 +39,26 @@ var EditServicePage = /** @class */ (function () {
                 _this.alertService.presentToast("Serviço alterado com sucesso");
             }, function (error) {
                 console.log(error);
+            });
+        });
+    };
+    EditServicePage.prototype["delete"] = function (id) {
+        var _this = this;
+        this.Storage.getToken('token').then(function (token) {
+            _this.service.Deletar(token, id).subscribe(function (data) {
+                console.log(data);
+                _this.alertService.presentToast("Serviço deletado com sucesso");
+                _this.BuscarServicos();
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    };
+    EditServicePage.prototype.BuscarServicos = function () {
+        var _this = this;
+        this.Storage.getToken('token').then(function (token) {
+            _this.service.Mservice(token).subscribe(function (response) {
+                _this.servicos = response;
             });
         });
     };

@@ -1,9 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>edit-service</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>edit-service</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-card *ngFor="let c of servicos">
+        <ion-card-content>
+            <ion-card-title>
+                {{c.titulo}}
+            </ion-card-title>
+            <p>
+                {{c.descricao}}
+                <br>{{c.categoria}} <br> {{c.subcategoria}} <br> {{c.Cidade_estado}} <br> {{c.nome}} <br> {{c.telefone}} </p>
+
+            <ion-button (click)="delete(c.id)" color=" danger ">Deletar</ion-button>
+
+            <ion-button [routerLink]="[ '/add-service/', c.id] " color="primary ">Editar</ion-button>
+
+        </ion-card-content>
+        <ion-item></ion-item>
+    </ion-card>
 
 </ion-content>

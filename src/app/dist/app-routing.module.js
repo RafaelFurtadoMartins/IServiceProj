@@ -26,7 +26,8 @@ var routes = [
     },
     {
         path: 'card',
-        loadChildren: function () { return Promise.resolve().then(function () { return require('./card/card.module'); }).then(function (m) { return m.CardPageModule; }); }
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./card/card.module'); }).then(function (m) { return m.CardPageModule; }); },
+        canActivate: [auth_guard_1.AuthGuard]
     },
     {
         path: 'add-service',
@@ -34,8 +35,18 @@ var routes = [
         canActivate: [auth_guard_1.AuthGuard]
     },
     {
+        path: 'add-service/:id',
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./add-service/add-service.module'); }).then(function (m) { return m.AddServicePageModule; }); },
+        canActivate: [auth_guard_1.AuthGuard]
+    },
+    {
         path: 'feed',
         loadChildren: function () { return Promise.resolve().then(function () { return require('./feed/feed.module'); }).then(function (m) { return m.FeedPageModule; }); }
+    },
+    {
+        path: 'edit-service',
+        loadChildren: function () { return Promise.resolve().then(function () { return require('./edit-service/edit-service.module'); }).then(function (m) { return m.EditServicePageModule; }); },
+        canActivate: [auth_guard_1.AuthGuard]
     },
 ];
 var AppRoutingModule = /** @class */ (function () {
