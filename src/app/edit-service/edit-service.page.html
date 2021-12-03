@@ -14,7 +14,7 @@
                 {{c.descricao}}
                 <br>{{c.categoria}} <br> {{c.subcategoria}} <br> {{c.Cidade_estado}} <br> {{c.nome}} <br> {{c.telefone}} </p>
 
-            <ion-button (click)="delete(c.id)" color=" danger ">Deletar</ion-button>
+            <ion-button (click)="delete(c.id)" color="danger">Deletar</ion-button>
 
             <ion-button [routerLink]="[ '/add-service/', c.id] " color="primary ">Editar</ion-button>
 
