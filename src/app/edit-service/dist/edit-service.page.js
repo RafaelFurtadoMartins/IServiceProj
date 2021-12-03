@@ -6,19 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.AddServicePage = void 0;
+exports.EditServicePage = void 0;
 var core_1 = require("@angular/core");
-var AddServicePage = /** @class */ (function () {
+var EditServicePage = /** @class */ (function () {
     // usuario: any = JSON.parse(this.authService.getToken())
-    function AddServicePage(fb, Storage, alertService, authService, addService, route) {
+    function EditServicePage(fb, Storage, alertService, authService, addService) {
         this.fb = fb;
         this.Storage = Storage;
         this.alertService = alertService;
         this.authService = authService;
         this.addService = addService;
-        this.route = route;
     }
-    AddServicePage.prototype.ngOnInit = function () {
+    EditServicePage.prototype.ngOnInit = function () {
         this.formulario = this.fb.group({
             titulo: '',
             descricao: '',
@@ -27,25 +26,24 @@ var AddServicePage = /** @class */ (function () {
             cidade: ''
         });
     };
-    AddServicePage.prototype.cadastroServico = function () {
+    EditServicePage.prototype.editService = function () {
         var _this = this;
         this.Storage.getToken('token').then(function (token) {
             _this.addService.registerServico(_this.formulario.value, token).subscribe(function (data) {
                 console.log(data);
-                _this.alertService.presentToast("Serviço salvo com sucesso");
-                _this.route.navigate(['/feed']);
+                _this.alertService.presentToast("Serviço alterado com sucesso");
             }, function (error) {
                 console.log(error);
             });
         });
     };
-    AddServicePage = __decorate([
+    EditServicePage = __decorate([
         core_1.Component({
-            selector: 'app-add-service',
-            templateUrl: './add-service.page.html',
-            styleUrls: ['./add-service.page.scss']
+            selector: 'app-edit-service',
+            templateUrl: './edit-service.page.html',
+            styleUrls: ['./edit-service.page.scss']
         })
-    ], AddServicePage);
-    return AddServicePage;
+    ], EditServicePage);
+    return EditServicePage;
 }());
-exports.AddServicePage = AddServicePage;
+exports.EditServicePage = EditServicePage;

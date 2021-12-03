@@ -24,4 +24,8 @@ servicos: servico[];
   navigateService() {
     this.route.navigate(['/add-service']);
   }
+  feed(){
+    this.route.navigate(['/edit-service']);
+
+  }
 }

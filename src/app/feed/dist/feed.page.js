@@ -22,6 +22,9 @@ var FeedPage = /** @class */ (function () {
     FeedPage.prototype.navigateService = function () {
         this.route.navigate(['/add-service']);
     };
+    FeedPage.prototype.feed = function () {
+        this.route.navigate(['/edit-service']);
+    };
     FeedPage = __decorate([
         core_1.Component({
             selector: 'app-feed',

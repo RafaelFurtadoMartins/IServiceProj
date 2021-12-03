@@ -1,6 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>
+            <ion-icon (click)="feed()" name="build-outline"></ion-icon>
             <ion-button color="primary" (click)="navigateService()">Adicionar Serviços</ion-button>
         </ion-title>
     </ion-toolbar>
@@ -9,7 +10,7 @@
 <ion-content>
     <ion-searchbar showCancelButton="always"></ion-searchbar>
 
-    <ion-card>
+    <!-- <ion-card>
         <div class="card-feed">
             <ion-card-header>
                 <ion-card-title *ngFor="let c of servicos">{{c.titulo}}</ion-card-title>
@@ -21,6 +22,15 @@
                 <ion-card *ngFor="let c of servicos">{{c.telefone}}</ion-card>
             </ion-card-header>
         </div>
+    </ion-card> -->
+    <ion-card *ngFor="let c of servicos">
+        <ion-card-content>
+            <ion-card-title>
+                {{c.titulo}}
+            </ion-card-title>
+            <p>
+                {{c.descricao}}
+                <br>{{c.categoria}} <br> {{c.subcategoria}} <br> {{c.Cidade_estado}} <br> {{c.nome}} <br> {{c.telefone}} </p>
+        </ion-card-content>
     </ion-card>
-
 </ion-content>

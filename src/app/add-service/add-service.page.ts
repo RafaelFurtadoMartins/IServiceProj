@@ -5,6 +5,7 @@ import { AddService } from 'src/app/services/add.service';
 import { AlertService } from '../services/alert.service';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-service',
@@ -22,6 +23,8 @@ export class AddServicePage implements OnInit {
     private alertService: AlertService,
     private authService: AuthService,
     private addService: AddService,
+    private route: Router
+
 
   ) { }
 
@@ -43,7 +46,8 @@ this.Storage.getToken('token').then((token:any)=>{
     data => {
       console.log(data);
       this.alertService.presentToast("Serviço salvo com sucesso");
-  
+    this.route.navigate(['/feed']);
+
     },
     error => {
       console.log(error);
